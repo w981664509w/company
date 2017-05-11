@@ -1,0 +1,545 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>上海德咸软件有限公司</title>
+<link rel="shortcut icon" href="../../img/dexian.ico" />
+<link rel="stylesheet" href="../../css/publicTab.css" />
+<link rel="stylesheet" href="../pcss/stylem.css" />
+<script>
+window.onload=function(){
+	//导航部分
+	var oDivTop=document.getElementById('top_nav');
+	var oUlTop=oDivTop.getElementsByTagName('ul')[0];
+	var aLiTop=oUlTop.getElementsByTagName('li');
+	
+	var aDivTop=oDivTop.getElementsByClassName('hide_one');
+	
+	for(var i=1;i<aLiTop.length;i++){
+		aLiTop[i].index=i-1;
+		aLiTop[i].onmouseover=function(){
+			aDivTop[this.index].style.display='block';	
+		};
+		aLiTop[i].onmouseout=function(){
+			aDivTop[this.index].style.display='none';	
+		};	
+	}
+	
+	for(var i=0;i<aDivTop.length;i++){
+		aDivTop[i].onmouseover=function(){
+			this.style.display='block';	
+		};
+		aDivTop[i].onmouseout=function(){
+			this.style.display='none';	
+		};	
+	}
+	
+	//第二部分图片变换
+	var box = document.getElementById("section_three");
+	var ul = box.getElementsByTagName('ul')[0];
+	var lis = ul.getElementsByTagName('li');
+	 
+	for (var i = 0; i < lis.length; i++) {
+	  lis[i].style.backgroundImage = 'url(img/'+(i+1)+'.jpg)';
+	 
+	  lis[i].onmouseover = function () {
+	 
+		for (var j = 0; j < lis.length; j++) {
+		  animate(lis[j], {"width": 100});
+		}
+	 
+		animate(this, {"width": 800});
+	  };
+	}
+	 
+	box.onmouseout = function () {
+	  for (var i = 0; i < lis.length; i++) {
+		animate(lis[i], {"width": 240});
+	  }
+	};
+	 
+	
+	function animate(obj, json) {
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function () {
+		var flag = true;
+		for (var k in json) {
+		  var leader = parseInt(getStyle(obj, k)) || 0;
+		  var target = json[k];
+		  var step = (target - leader) / 10;
+		  step = step > 0 ? Math.ceil(step) : Math.floor(step);
+		  leader = leader + step;
+		  obj.style[k] = leader + "px";
+		 
+		  console.log("代码还在运行");
+		  if (leader != target) {
+	 
+			flag = false;
+	 
+		  }
+		}
+	 
+		if (flag) {
+		  clearInterval(obj.timer);
+		}
+	  }, 15);
+	}
+	function getStyle(obj, attr) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(obj, null)[attr];
+  } else {
+    return obj.currentStyle[attr];
+  }
+} 
+	 
+};
+</script>
+</head>
+
+<body>
+<div id="top_nav" class="top_nav clear">
+	<a class="logo" href="#">
+    	<img src="../../img/logo3.gif" alt="logo" />
+        <h3>上海德咸软件有限公司</h3>
+    </a>
+	<ul class="top_nav_list">
+    	<li>
+        	<a href="../../indexb.html">首页</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../solution/plan.html">行业解决方案</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../product.html">产品中心</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="#">客户案例</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../service/help.html">服务支持</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../relation/contact.html">联系我们</a>
+            <span></span>
+        </li>
+    </ul>
+    <div class="script">
+    	<a href="#"></a>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul3">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>制造行业</dt>
+                    <dd><a href="../../solution/plan_text/ptext1.html">生产计划</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext2.html">物料计划</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext3.html">物料分发</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext4.html">半成品入库</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>零售行业</dt>
+                    <dd><a href="../../solution/plan_text/ptext5.html">POS收银</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext6.html">库存管理</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext7.html">积分活动</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext8.html">APP/微信</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>服装行业</dt>
+                    <dd><a href="#">订单输入</a></dd>
+                    <dd><a href="#">颜色尺码管理</a></dd>
+                    <dd><a href="#">布料计划</a></dd>
+                    <dd><a href="#">款式出样</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list hide_ul1_right">
+                    <dt>外贸行业</dt>
+                    <dd><a href="#">采购订单</a></dd>
+                    <dd><a href="#">销售订单</a></dd>
+                    <dd><a href="#">出入库记录</a></dd>
+                    <dd><a href="#">销售报表</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul2">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>ERP系列</dt>
+                    <dd><a href="#">进销存系统</a></dd>
+                    <dd><a href="#">采购系统</a></dd>
+                    <dd><a href="#">CRM系统</a></dd>
+                    <dd><a href="#">仓库管理系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>其他软件产品</dt>
+                    <dd><a href="#">商机管理系统</a></dd>
+                    <dd><a href="#">二维码</a></dd>
+                    <dd><a href="#">数据实时屏显系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>定制开发</dt>
+                    <dd><a href="#">JAVA开发</a></dd>
+                    <dd><a href="#">C/C++开发</a></dd>
+                    <dd><a href="#">APP开发/微信开发</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_right hide_ul1_list">
+                    <dt>代理软硬件产品</dt>
+                   <dd><a href="user1.html">帕拉迪堡垒机</a></dd>
+                    <dd><a href="user3.html">深信服上网行为管理</a></dd>
+                    <dd><a href="user2.html">亿塞通数据加密防泄漏软件</a></dd>
+                    <dd><a href="#">华为桌面云系统</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul4">
+            <li>
+            	<div class="hide_ul4_pic1">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgjICAvQUoqpnrpwEw4wE4TA.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>浙江尤奈特电机有限公司</h3>
+                    </div>
+                </div>
+            </li>
+            <li>
+            	<div class="hide_ul4_pic1 hide_ul4_pic2">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgqIGAvQUopsWvxQUw0QE4Pg.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>申银万国期货有限公司</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+    	<ul class="hide_ul1 hide_ul5">
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>德咸公司吸收全球客户的经验，结合国内外先进的管理理念和管理软件的实施方法，推出符合中国国情的标准软件实施方法“Xway实施方法论”。我们愿意运用我们在企业管理及IT技术方面的知识，帮助客户迈向一个更高的台阶！</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <div class="hide_service">
+        	<ul class="clear">
+            	<li>
+                	<img src="../../img/n2.jpg" alt="" />
+                </li>
+                <li>
+                	<p>
+                    	地址：乳山路206号申富大厦501室<br/>
+                        邮政编码:200120
+                    </p>
+                	<p>
+                    	公司总电：021-61557545<br/>
+                        电子邮箱:info@magnifiit.com
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="tab product_pic" ></div>
+<div class="main2 main4">
+	<h3 class="main2_h3">深信服上网行为管理产品功能简介</h3>
+    <div class="main2_p1"></div>
+    <div class="main2_p4">
+    	<img src="../pimage/p10.jpg" alt="深信服上网行为管理产品功能简介" />
+    </div>
+    <table>
+    	<caption>深信服上网行为管理产品功能简介</caption>
+        <tr>
+        	<td style="width:82px;">类别</td>
+            <td style="width:94px;">功能</td>
+            <td style="width:502px;">功能说明</td>
+        </tr>
+        <tr>
+        	<td rowspan="6" class="center">审计</td>
+            <td>邮件延迟审计</td>
+            <td>对处发邮伯进行延迟，特定审核人员审核后才能发出，确保信息资产不外泄</td>
+        </tr>
+        <tr>
+            <td>实时监控</td>
+            <td>实时监控员工上网行为，支持临时冻结员工或中断指定连接</td>
+        </tr>
+        <tr>
+            <td>内网监控</td>
+            <td>监控员工的各种网络行为，记录包括QQ、MSN等聊天内容（如果聊天内容是加密的则需要安装准入客户端）；浏览网页的网址、网页标题、整个网页正文内容（监控正文内容比较消耗设备资源，一般不建议采用）;网络发贴、WebMail正文及附件;收发的Email正文及附件；上传下载的文件等各种行为进行详细记录、防止组织机构内部机密、情报等外漏、并做到有据可查</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+            	<p>1.审计所有已知应用和未知应用。</p>
+                <p>2.审计用户的具体行为内容，比如可以记录网页具体内容、MSN聊天内容等。</p>
+                <p>3.审计Webmail内容：把发件人、收件人、抄送、暗送、标题、正文、附件识别和记录下来。</p>
+                <p>4.审计BBS内容：记录发贴帐号、发贴标题、发贴内容、其他详细上传内容。</p>
+                <p>5.WebMail，BBS 上传的时候，中文有多种编码，ACtrace要进行解码，保证写到日志里的是可以搜索的明文。</p>
+                <p>6.对于WebMail和BBS上传时的附件，可以记录附件的内容。</p>
+                <p>7.记录HTTP上传时会记录完整的URL。</p>
+                <p>8.审计WAN->LAN方向的应用行为内容，如FTP，HTTP，Mail等，能审计文件名，文件类型，URL和邮件等。</p>
+                <p>9.可以识别http上传是webmail上传还是bbs上传，只对主流的网站有效</p>
+            </td>
+        </tr>
+        <tr>
+            <td>免监控Key</td>
+            <td>支持组织机构的高层领导通过“免审计key”方式，从设备底层免除对其所有网络行为的记录</td>
+        </tr>
+        <tr>
+            <td>用户认证</td>
+            <td>支持Web认证、支持本地账户数据库、LDAP、AD、RADIUS、POP3、PROXY等、且支持USB-Key双因素身份认证方式</td>
+        </tr>
+        <tr>
+        	<td rowspan="11" class="center">控制</td>
+            <td>终端认证</td>
+            <td>检查终端操作系统版本、补丁安装情况、系统进程、注册表、硬盘文件、不符合管理者指定安全的终端可设置为不允许上网</td>
+        </tr>
+        <tr>
+            <td>IP/MAC绑定</td>
+            <td>灵活的ip、mac绑定策略、且在三层网络环境中实现ip-mac绑定</td>
+        </tr>
+        <tr>
+            <td>网站过滤</td>
+            <td>海量url库、黑白名单，多种关键字识别技术、过滤色情、反动、新闻等网站</td>
+        </tr>
+        <tr>
+            <td>SSL网站过滤</td>
+            <td>SSL加密的钓鱼网站、博彩网站、非法、反动网站等、同样可以识别和过滤</td>
+        </tr>
+        <tr>
+            <td>应用软件管控</td>
+            <td>识别和管控QQ、MSN、Skype、飞信等各种聊天软件；BT、电骡等各种P2P软件：及网络炒股、网络游戏、在线影音视频等行为</td>
+        </tr>
+        <tr>
+            <td>访问控制策略</td>
+            <td>提供若于用户组、单个用户，时间、服务、网址策略、内容策略等多种对象组合的细致灵活的访问控制和拦截</td>
+        </tr>
+        <tr>
+            <td>P2P智能识别</td>
+            <td>加密BT、加密电骡、不常见的P2P行为、版本泛滥的P2P工具等、P2P智能识别技术进行彻底识别和管控</td>
+        </tr>
+        <tr>
+            <td>文件上传下载控制</td>
+            <td>对HTTP、FTP上传、下载的文件类型进行控制、亦对QQ、MSN等文件传输行为进行识别和拦截</td>
+        </tr>
+        <tr>
+            <td>代理识别功能</td>
+            <td>识别采用HTTP、HTTPS、SOCKS等代理服务器绕过管控检查的行为、从面进行识别和阻断</td>
+        </tr>
+        <tr>
+            <td>敏感数据拦截</td>
+            <td>对HTTP、FTP、SMTP等应用协议做敏感数据拦截，以防泄密和潜在的法律风险</td>
+        </tr>
+        <tr>
+            <td>流量统计日志</td>
+            <td>包含流量统计概要、组流量日志、流量趋势等、用饼图、柱图等直观的显示内网流量统计情况</td>
+        </tr>
+        <tr>
+        	<td rowspan="9" class="center">报表</td>
+            <td>上网时间日志</td>
+            <td>指定时间段内监控和统计用户总上网时间、某网络应用总使用时间、用户使用某应用时间、并以饼图、柱图等直观显示时间统计情况</td>
+        </tr>
+        <tr>
+            <td>邮件日志</td>
+            <td>包含邮件统计概要、邮件排行、邮件查询、邮件趋势等功能、详细统计员工收发的所有邮件的具体情况</td>
+        </tr>
+        <tr>
+            <td>网络监控日志</td>
+            <td>包括监控和统计用户网络应用活动排行、URL访问排行、审计查询用户的网络发帖、IM聊天、P2P下载、网络炒股等详细日志</td>
+        </tr>
+        <tr>
+            <td>安全日志</td>
+            <td>包含设备安全相关日志信息，及组织机构网络发生的DOS攻击、ARP欺骗等安全事件日志信息</td>
+        </tr>
+        <tr>
+            <td>报表分析功能</td>
+            <td>支持对上述各种网络监控数据进行报表分析及图形化分析、包括柱状图、曲线趋势图等</td>
+        </tr>
+        <tr>
+            <td>自动报表功能</td>
+            <td>根据管理者设定、数据中心自动将指定时间段内的流量日志、邮件日志、网络监控日志、上网时间日志等查询、统计结果汇总成PDF等报表文件、发送到指定Email邮箱</td>
+        </tr>
+        <tr>
+            <td>内容检索</td>
+            <td>通过专业搜索引擎、实现对海量日志信息的内容搜索、方便管理者对海量数据的快速检索及数据挖掘</td>
+        </tr>
+        <tr>
+            <td>主题订阅</td>
+            <td>将含有管理者指定关键字的行为日志统计结果自动形成Email，发送到指定邮箱</td>
+        </tr>
+        <tr>
+            <td>QOS保证</td>
+            <td>使用差分业务模型实现QOS,使用随机早期检测RED丢弃算法提供流量控制</td>
+        </tr>
+        <tr>
+        	<td rowspan="6" class="center">带宽管理</td>
+            <td>多线路复用</td>
+            <td>可同时连接四条公网线路（5100及以下型号是两条），实现带宽迭加、负载均衡</td>
+        </tr>
+        <tr>
+            <td>多线路智能选路</td>
+            <td>多线路之间互为备份、且内网员工的流量可以根据访问内容智能分担到不同线路上，解决了跨运营商的带宽瓶颈问题</td>
+        </tr>
+        <tr>
+            <td>流量分配和控制</td>
+            <td>针对内网不同员工、不同用户组、为其指定的应用类型/网站类型/上传下载文件类型的访问行为提供带宽分配和管理措施、使组织机构的带宽资源得观察家充分有效的利用</td>
+        </tr>
+        <tr>
+            <td>带宽保证策略</td>
+            <td>针对用户指定的网络行为，即可静态保留指定带宽面不被其他行为挤占、也可动态预留指定带宽便于带宽的充分利用</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+            	<p>1.流量控制支持针对某种具体网络应用、网站类型、HTTP上传下载的文件类型以及VPN（AC自带的）数据进行流控</p>
+                <p>2.流量控制对网络应用进行流控的时候，既可以选择某个分类，也可以选择某个分类下面的具体某个应用；</p>
+                <p>3.可以实现WAN－>LAN方向的流控；</p>
+                <p>4.可以为重要服务设置保证带宽，保证重要业务的网络带宽，同时也可以指定这些业务占用的最大带宽</p>
+                <p>5.可以限定某些服务的最大带宽，例如P2P的最大带宽</p>
+                <p>6.当带宽资源紧张时，可以通过优先级来区分服务的重要性从而优先尽量保证这些服务的带宽</p>
+                <p>7.用户的带宽分配策略较以前灵活，可以实现平均分配和自由抢占2种方式</p>
+                <p>8.支持限定单个用户的最大带宽，支持流控生效时间设置</p>
+                <p>9.可以排除某些服务，不进行流控</p>
+                <p>10.当网络空闲时，除了被限制上限带宽的服务外，其他网络行为都可以竭尽所能，享有所需要的带宽</p>
+            </td>
+        </tr>
+        <tr>
+            <td>PSP管控</td>
+            <td>不仅可以全面封堵各种P2P应用，还可以对P2P行为进行流量控制、限制其上行流量和下行流量，节省组织机构网络带宽资源</td>
+        </tr>
+        <tr>
+        	<td></td>
+            <td>网络准入规则</td>
+            <td>通过检查终端操作系统版本、补丁安装情况、系统进程、注册表、硬盘文件、拒绝不符合管理者指定安全策略的终端上网、避免因终端安全级别不引发的内网安全风险和故障</td>
+        </tr>
+        <tr>
+        	<td rowspan="3" class="center">UTM整合</td>
+            <td>防DOS</td>
+            <td>使组织能够应对内网大规模发的蠕虫病毒或是僵尸网络激活对组织网络造成的极大冲击</td>
+        </tr>
+        <tr>
+            <td>防ARP欺骗</td>
+            <td>防范因ARP欺骗导致的内网用户大规模断网的情况</td>
+        </tr>
+        <tr>
+            <td>防病毒引擎</td>
+            <td>集成欧洲领先防毒厂的杀毒引擎、提供对HTTP、FTP、Mail等容易携带病毒的网络内容的检测和病毒查杀、形成对组织能够应对组织病毒防护的管理的有益补充</td>
+        </tr>
+    </table>
+</div>
+<div class="side_qq">
+	<a class="img_qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=981664509&site=qq&menu=yes">
+		<img src="../../img/qq8.png" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+	</a>
+    <strong>在线咨询</strong>
+</div> 
+<div class="footer">
+	<div class="footer_top_one">
+    	<div class="footer_top_two clear">
+        	<ul class="footer_top_three clear">
+            	<li>
+                	<dl>
+                    	<dt>行业解决方案</dt>
+                        <dd><a href="#">制造行业</a></dd>
+                        <dd><a href="#">零售行业</a></dd>
+                        <dd><a href="#">服装行业</a></dd>
+                        <dd><a href="#">外贸行业</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>产品中心</dt>
+                        <dd><a href="#">ERP系列</a></dd>
+                        <dd><a href="#">其他软件产品</a></dd>
+                        <dd><a href="#">定制开发</a></dd>
+                        <dd><a href="#">代理软硬件产品</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>客户案例</dt>
+                        <dd><a href="#">浙江尤奈特电机有限公司</a></dd>
+                        <dd><a href="#">申银万国期货有限公司</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>关于我们</dt>
+                        <dd><a href="#">公司简介</a></dd>
+                        <dd><a href="#">发展历程</a></dd>
+                        <dd><a href="#">管理团队</a></dd>
+                        <dd><a href="#">社会责任</a></dd>
+                        <dd><a href="#">新闻媒体</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="footer_top_four">
+            	<dl>
+                    <dt>关注我们</dt>
+                    <dd>
+                    	<a href="#"><img src="../../img/contact1.gif" alt="" /></a>
+                        <a href="#"><img src="../../img/contact2.gif" alt="" /></a>
+                    </dd>
+                    <dd>
+                    	<img src="../../img/contact3.png" alt="" class="contact_pic" />
+                        <span>官方微信</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom clear">
+    	<div class="footer_left">
+        	<span>&copy;&nbsp;2017上海德咸软件有限公司&nbsp;版权所有&nbsp;
+            	<a href="#" target="_blank">沪ICP备17003635号</a>
+            </span>
+        </div>
+        <ul class="footer_right">
+        	<li>
+            	<a href="#" target="_blank">法律声明</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">隐私保护</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">联系我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>上海德咸软件有限公司</title>
+<link rel="shortcut icon" href="../../img/dexian.ico" />
+<link rel="stylesheet" href="../../css/publicTab.css" />
+<link rel="stylesheet" href="../acss/stylek.css" />
+<script>
+window.onload=function(){
+	//导航部分
+	var oDivTop=document.getElementById('top_nav');
+	var oUlTop=oDivTop.getElementsByTagName('ul')[0];
+	var aLiTop=oUlTop.getElementsByTagName('li');
+	
+	var aDivTop=oDivTop.getElementsByClassName('hide_one');
+	
+	for(var i=1;i<aLiTop.length;i++){
+		aLiTop[i].index=i-1;
+		aLiTop[i].onmouseover=function(){
+			aDivTop[this.index].style.display='block';	
+		};
+		aLiTop[i].onmouseout=function(){
+			aDivTop[this.index].style.display='none';	
+		};	
+	}
+	
+	for(var i=0;i<aDivTop.length;i++){
+		aDivTop[i].onmouseover=function(){
+			this.style.display='block';	
+		};
+		aDivTop[i].onmouseout=function(){
+			this.style.display='none';	
+		};	
+	}
+	
+	//第二部分图片变换
+	var box = document.getElementById("section_three");
+	var ul = box.getElementsByTagName('ul')[0];
+	var lis = ul.getElementsByTagName('li');
+	 
+	for (var i = 0; i < lis.length; i++) {
+	  lis[i].style.backgroundImage = 'url(img/'+(i+1)+'.jpg)';
+	 
+	  lis[i].onmouseover = function () {
+	 
+		for (var j = 0; j < lis.length; j++) {
+		  animate(lis[j], {"width": 100});
+		}
+	 
+		animate(this, {"width": 800});
+	  };
+	}
+	 
+	box.onmouseout = function () {
+	  for (var i = 0; i < lis.length; i++) {
+		animate(lis[i], {"width": 240});
+	  }
+	};
+	 
+	
+	function animate(obj, json) {
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function () {
+		var flag = true;
+		for (var k in json) {
+		  var leader = parseInt(getStyle(obj, k)) || 0;
+		  var target = json[k];
+		  var step = (target - leader) / 10;
+		  step = step > 0 ? Math.ceil(step) : Math.floor(step);
+		  leader = leader + step;
+		  obj.style[k] = leader + "px";
+		 
+		  console.log("代码还在运行");
+		  if (leader != target) {
+	 
+			flag = false;
+	 
+		  }
+		}
+	 
+		if (flag) {
+		  clearInterval(obj.timer);
+		}
+	  }, 15);
+	}
+	function getStyle(obj, attr) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(obj, null)[attr];
+  } else {
+    return obj.currentStyle[attr];
+  }
+} 
+	 
+};
+</script>
+</head>
+
+<body>
+<div id="top_nav" class="top_nav clear">
+	<a class="logo" href="#">
+    	<img src="../../img/logo3.gif" alt="logo" />
+        <h3>上海德咸软件有限公司</h3>
+    </a>
+	<ul class="top_nav_list">
+    	<li>
+        	<a href="../../indexb.html">首页</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../solution/plan.html">行业解决方案</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../production/product.html">产品中心</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="#">客户案例</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../service/help.html">服务支持</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../relation/contact.html">联系我们</a>
+            <span></span>
+        </li>
+    </ul>
+    <div class="script">
+    	<a href="#"></a>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul3">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>制造行业</dt>
+                    <dd><a href="ptext1.html">生产计划</a></dd>
+                    <dd><a href="ptext2.html">物料计划</a></dd>
+                    <dd><a href="ptext3.html">物料分发</a></dd>
+                    <dd><a href="ptext4.html">半成品入库</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>零售行业</dt>
+                    <dd><a href="ptext5.html">POS收银</a></dd>
+                    <dd><a href="ptext6.html">库存管理</a></dd>
+                    <dd><a href="ptext7.html">积分活动</a></dd>
+                    <dd><a href="ptext8.html">APP/微信</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>服装行业</dt>
+                    <dd><a href="#">订单输入</a></dd>
+                    <dd><a href="#">颜色尺码管理</a></dd>
+                    <dd><a href="#">布料计划</a></dd>
+                    <dd><a href="#">款式出样</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list hide_ul1_right">
+                    <dt>外贸行业</dt>
+                    <dd><a href="#">采购订单</a></dd>
+                    <dd><a href="#">销售订单</a></dd>
+                    <dd><a href="#">出入库记录</a></dd>
+                    <dd><a href="#">销售报表</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul2">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>ERP系列</dt>
+                    <dd><a href="#">进销存系统</a></dd>
+                    <dd><a href="#">采购系统</a></dd>
+                    <dd><a href="#">CRM系统</a></dd>
+                    <dd><a href="#">仓库管理系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>其他软件产品</dt>
+                    <dd><a href="#">商机管理系统</a></dd>
+                    <dd><a href="#">二维码</a></dd>
+                    <dd><a href="#">数据实时屏显系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>定制开发</dt>
+                    <dd><a href="#">JAVA开发</a></dd>
+                    <dd><a href="#">C/C++开发</a></dd>
+                    <dd><a href="#">APP开发/微信开发</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_right hide_ul1_list">
+                    <dt>代理软硬件产品</dt>
+                    <dd><a href="../../production/user/user1.html">帕拉迪堡垒机</a></dd>
+                    <dd><a href="../../production/user/user3.html">深信服上网行为管理</a></dd>
+                    <dd><a href="../../production/user/user2.html">亿塞通数据加密防泄漏软件</a></dd>
+                    <dd><a href="#">华为桌面云系统</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul4">
+            <li>
+            	<div class="hide_ul4_pic1">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgjICAvQUoqpnrpwEw4wE4TA.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>浙江尤奈特电机有限公司</h3>
+                    </div>
+                </div>
+            </li>
+            <li>
+            	<div class="hide_ul4_pic1 hide_ul4_pic2">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgqIGAvQUopsWvxQUw0QE4Pg.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>申银万国期货有限公司</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+    	<ul class="hide_ul1 hide_ul5">
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>德咸公司吸收全球客户的经验，结合国内外先进的管理理念和管理软件的实施方法，推出符合中国国情的标准软件实施方法“Xway实施方法论”。我们愿意运用我们在企业管理及IT技术方面的知识，帮助客户迈向一个更高的台阶！</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <div class="hide_service">
+        	<ul class="clear">
+            	<li>
+                	<img src="../../img/n2.jpg" alt="" />
+                </li>
+                <li>
+                	<p>
+                    	地址：乳山路206号申富大厦501室<br/>
+                        邮政编码:200120
+                    </p>
+                	<p>
+                    	公司总电：021-61557545<br/>
+                        电子邮箱:info@magnifiit.com
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="tab product_piv" ></div>
+<div class="main1">
+	<h3 class="main1_h3">ERP标准流程</h3>
+    <p class="main1_p1">发布时间：2011-08-23 来源：互联网</p>
+    <h4 class="main1_p5">
+    	ERP标准流程-入库管理
+    </h4>
+    <p class="main1_p2">
+    	一、	业务说明：
+    </p>
+    <p class="main1_p2">
+    	库房在收到实际货物和相应入库验收单据的情况下，按照库房实物管理制度，清点货物，按照要求，将货物存放到指定地点，并在入库验收单上签字。
+入库验收单的来源存在多种情况：进货入库、销退入库、借货入库、移库入库、从同级单位调货入库。在实际业务中，可能还存在只签字，没有实货的情况，如报溢。在手工业务中，不同的入库实际上是不同的原始单据，我们建议，在引入计算机管理信息系统后，我们应该将所有入库单据统一。
+
+    </p>
+    <p class="main1_p2">
+    	二、流程图：
+    </p>
+    <p class="main1_p2">
+    	入库流程如下：
+    </p>
+    <div class="main1_p4">
+    	<img src="../aimage/p23.png" alt="入库流程" />
+    </div>
+    <p class="main1_p2">
+    	三、流程图说明
+    </p>
+    <p class="main1_p2">
+    	库房管理员随时查询未记账的入库单，根据实货在库房的存放情况，确定货位等明细信息，并检查如批号等的明细信息，正确后，入库记保管帐并打印入库单，作为记账的依据。
+    </p>
+    <p class="main1_p2">
+    	四、单据说明
+    </p>
+    <p class="main1_p2">
+    	入库单：库房管理员入库记账依据（一般情况下不包括金额信息，有时被进货单的一联代替）。
+单据样式：
+数据项说明：
+    </p>
+    <p class="main1_p2">
+    	五、报表说明<br/>
+    </p>
+    <p class="main1_p2">
+        无
+    </p>
+    <p class="main1_p2">
+    	 六、岗位职责
+    </p>
+    <p class="main1_p2">
+    	库房管理员：确保单据同入库实物一致，在系统中将入库单入库记账。若有需要调整的在库信息则使用复核修改入库单功能进行调整。
+    </p>
+    <p class="main1_p2">
+    	七、岗位操作规范
+    </p>
+    <p class="main1_p2">
+    	A、复核修改入库单
+B、入库记保管帐
+    </p>
+    <p class="main1_p2">
+    	八、可以简化的业务流程
+    </p>
+    <p class="main1_p2">
+    	在人员较少，业务流程实际也不复杂的企业，或库房并不真正利用计算机系统管理的企业，我们建议在所有业务结束的同时，直接入库记保管帐，在相关功能中《进货单管理》，《移库单管理》，《调拨单管理》，《销售退货管理》等功能的授权属性的‘功能行为属性’中直接设置为入库记保管帐，就能简化库房的操作。
+    </p>
+    <p class="main1_p2">
+    	九、可能遇到的特殊问题
+    </p>
+    <p class="main1_p2">
+    	1.	库房不上计算机系统；可以使用简化的业务流程。
+2.	在医药行业对批号和货位的管理相当严格；必须使用符合修改入库单功能。
+3.	在管理很规范的企业，入库记账的依据必须是原始单据，并要签字；原始单据的打印设计必须利于库房管理员使用，如打印入库单号等。
+4.	处理某些特殊类型库房，如调拨的保管帐，职工福利的保管帐，为方便冲红票而设计的虚拟保管帐等；应使用简化的业务流程。
+    </p>
+    <p class="main1_p2">
+    	十、配置说明
+    </p>
+    <p class="main1_p2">
+    	若自动记保管帐需要在对应的业务功能中设置功能行为属性自动记保管帐。
+    </p>
+    <p class="main1_p2">
+    	出库管理
+    </p>
+    <p class="main1_p2">
+    	一、	业务说明
+    </p>
+    <p class="main1_p2">
+    	库房管理员按照公司的出库原则（先进先出、批次管理、后进先出等），根据库房综合员传来的销售发票、增值税发票清单、移库单、调拨出库单、报损单、进货退出单等拣货出库，并由拣货工将货物送到发货区。
+    </p>
+    <p class="main1_p2">
+    	二、流程图
+    </p>
+    <p class="main1_p2">
+    	出库流程如下页图所示:
+    </p>
+    <div class="main1_p4">
+    	<img src="../aimage/p24.png" alt="出库流程" />
+    </div>
+    <p class="main1_p2">
+    	三、流程图说明
+    </p>
+    <p class="main1_p2">
+    	库房配货调度在收到相关部门传来的出库单据后，进行库房配货。并打印配货汇总单。各仓房库房管理员自动打印拣货单，根据拣货单拣货并复核出库。交搬运工将货物运送到指定的发货区或装箱区待发货。发货员根据客户提货单或送货单（随货同行联）复核发货。司机和送货员将货物送到客户处后将客户签字的运输联返回公司。
+    </p>
+    <p class="main1_p2">
+    	四、单据说明
+    </p>
+    <p class="main1_p2">
+    	配货单：系统依据配货原则进行配货后打印出的单据，一般记录相关单位、货品、数量、批号、批次、状态等信息。使用拣货单时其一般用于发货前的核对，不使用拣货单时其可以用于拣货，代替拣货单。
+拣货单：用于库房保管员拣货的单据，信息项基本于配货单相同，为了便于拣货一般分仓房、相关单位进行分页打印。
+    </p>
+    <p class="main1_p2">
+    	五、报表说明<br/>
+    </p>
+    <p class="main1_p2">
+    	六、岗位职责
+    </p>
+    <p class="main1_p2">
+    	1.	配货调度：负责在系统中进行配货，当系统配出的信息需要调整时使用配货手工调整功能进行相应调整。在需要的时候对应配货失败的配货单生成欠货单。
+2.	库房管理员：打印拣货单，并依据拣货单进行拣货，将货品移至备发区。需要确保实物同拣货单一致。
+3.	发货员：将实物同相关单据进行核对，确认无误后发货。
+4.	送货员：将货品及相关单据送至客户处，将运输回执由对方签字后带回。
+    </p>
+    <p class="main1_p2">
+    	七、岗位操作规范
+    </p>
+    <p class="main1_p2">
+    	A、库房配货
+B、配货手工调整
+C、查询打印配货单
+D、拣货单管理
+E、拣货完工
+F、备货完工
+G、发货
+    </p>
+    <p class="main1_p2">
+    	八、可以简化的业务流程
+    </p>
+    <p class="main1_p2">
+    	1.	利用自动配货：在一些出库业务中通过设置可以在相关单据确认时自动配货、自动出库记账。这种情况一般适用于小型企业。
+2.	不要拣货单：不生成拣货单，打印配货单来代替拣货单。这种情况一般适用于只有一个仓房的企业。
+3.	简化运输流程：对于运输业务简单的企业可以不使用运输系统。
+4.简化装箱流程：企业对散件装箱业务管理要求不高的情况下可以跳过装箱流程。
+    </p>
+    <p class="main1_p2">
+    	九、可能遇到的特殊问题
+    </p>
+    <p class="main1_p2">
+    	1.	保管帐定义问题：保管帐定义直接关系到库房的配货模式。某集团拥有一个大的仓库，由一幢大楼组成，大楼有五层，每层楼都是由一个或多个保管员管理。每个保管员记录一本自己的保管帐，搬运工是共用的，或存在较多的搬运工，分配到每个楼层。
+这种模式的库房管理，结合PM/BMS3，我们需要讨论以下细节：
+A.各仓房之间是否存在串货行为：每个货品依据属性（大类、品种分类、品种等）是否能确切的指定应该存放的地点；
+B.各仓房的出库是直接依据业务部门开具的出库单出库，还是依据库房总体调度出库；
+C.在药品经营企业，还存在原件、散件问题，原件存放楼层和散件存放楼层货物之间的移动依据什么样的单据和原则，发出指令的部门是哪些；
+D.对客户的发货，公司是否在意统一协调：如果某一个楼层因为某些特殊原因没有将货物送到指定的发货区，送给客户的货品是否运输；
+E.库房怎么管理每个楼层的货物送到发货区的什么地方；
+F.在药品经营企业或散件较多的企业，包装和库房楼层之间的关系：是在货物存放楼层直接装箱，还是存在专门的装箱区，散件是否单独存放，并和装箱区相连；
+在搞清楚以上问题后，保管帐的设置就是两种：
+A.将每个仓房设置为PM/BMS3的保管帐；
+B.将整幢大楼设置为一个保管帐，每个楼层设置为仓房；
+2.	这两种设置方法各有利弊：
+A.A方法是最接近手工的处理办法，库房管理员很好理解，但操作的烦琐性是显而易见的，开票时必须分开保管帐开，发票等出库单据的打印也必须按照保管帐分页。出库单据传递到库房后，还要继续按照库房分单，明显减缓出库效率，并且会造成每个楼层不知道将货物送到什么地点。散件的处理就更加麻烦，当散件库房不能满足开票的要求时，必须首先填写移库单，并等待两个楼层出库和入库后，才能开票，显然不符合实际需求。当然散件的处理可以通过管理制度来缓解一定的矛盾，比如随时补充库存，依据产品提供的报警和移库单的关系，每天定时补充，但这又要求库房的管理水平很高，库房的管理人员能根据散件的出库量来核定一个合理的散件库房的下限和上限。
+B.B方法是我们推荐的方法。基于这样的假设：业务部门只关心货品的总体库存，而并不关注货品的存放地点，库房也只关心货品的出库，并不关注来源，也就是说，出库的指令应该是由一个部门统一下发并有序，是仓库内部的管理。
+    </p>
+    <p class="main1_p2">
+    	十、配置说明
+    </p>
+    <p class="main1_p2">
+    	A、	位为了选择系统的配货策略需要在库房配货的功能行为属性中进行设置，系统目前提供三种配货策略：批次优先、批号优先、尽量配一个批号。
+B、	需要在库房配货的功能行为属性中设置拣货单生成方式。
+    </p>
+    <p class="explain">*本文来源于互联网，本着传播知识、有益学习和研究的目的进行的转载，为网友免费提供，并以尽力标明作者与出处，如有著作权人或出版方提出异议，本站将立即删除。如果您对文章转载有任何疑问请告之我们，以便我们及时纠正。联系方式：021-61557545。</p>
+</div>
+<div class="side_qq">
+	<a class="img_qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=981664509&site=qq&menu=yes">
+		<img src="../../img/qq8.png" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+	</a>
+    <strong>在线咨询</strong>
+</div> 
+<div class="footer">
+	<div class="footer_top_one">
+    	<div class="footer_top_two clear">
+        	<ul class="footer_top_three clear">
+            	<li>
+                	<dl>
+                    	<dt>行业解决方案</dt>
+                        <dd><a href="#">制造行业</a></dd>
+                        <dd><a href="#">零售行业</a></dd>
+                        <dd><a href="#">服装行业</a></dd>
+                        <dd><a href="#">外贸行业</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>产品中心</dt>
+                        <dd><a href="#">ERP系列</a></dd>
+                        <dd><a href="#">其他软件产品</a></dd>
+                        <dd><a href="#">定制开发</a></dd>
+                        <dd><a href="#">代理软硬件产品</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>客户案例</dt>
+                        <dd><a href="#">浙江尤奈特电机有限公司</a></dd>
+                        <dd><a href="#">申银万国期货有限公司</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>关于我们</dt>
+                        <dd><a href="#">公司简介</a></dd>
+                        <dd><a href="#">发展历程</a></dd>
+                        <dd><a href="#">管理团队</a></dd>
+                        <dd><a href="#">社会责任</a></dd>
+                        <dd><a href="#">新闻媒体</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="footer_top_four">
+            	<dl>
+                    <dt>关注我们</dt>
+                    <dd>
+                    	<a href="#"><img src="../../img/contact1.gif" alt="" /></a>
+                        <a href="#"><img src="../../img/contact2.gif" alt="" /></a>
+                    </dd>
+                    <dd>
+                    	<img src="../../img/contact3.png" alt="" class="contact_pic" />
+                        <span>官方微信</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom clear">
+    	<div class="footer_left">
+        	<span>&copy;&nbsp;2017上海德咸软件有限公司&nbsp;版权所有&nbsp;
+            	<a href="#" target="_blank">沪ICP备17003635号</a>
+            </span>
+        </div>
+        <ul class="footer_right">
+        	<li>
+            	<a href="#" target="_blank">法律声明</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">隐私保护</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">联系我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script src="../ajs/amenu.js"></script>
+
+
+

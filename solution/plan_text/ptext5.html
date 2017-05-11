@@ -1,0 +1,565 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>上海德咸软件有限公司</title>
+<link rel="shortcut icon" href="../../img/dexian.ico" />
+<link rel="stylesheet" href="../../css/publicTab.css" />
+<link rel="stylesheet" href="../acss/stylek.css" />
+<script>
+window.onload=function(){
+	//导航部分
+	var oDivTop=document.getElementById('top_nav');
+	var oUlTop=oDivTop.getElementsByTagName('ul')[0];
+	var aLiTop=oUlTop.getElementsByTagName('li');
+	
+	var aDivTop=oDivTop.getElementsByClassName('hide_one');
+	
+	for(var i=1;i<aLiTop.length;i++){
+		aLiTop[i].index=i-1;
+		aLiTop[i].onmouseover=function(){
+			aDivTop[this.index].style.display='block';	
+		};
+		aLiTop[i].onmouseout=function(){
+			aDivTop[this.index].style.display='none';	
+		};	
+	}
+	
+	for(var i=0;i<aDivTop.length;i++){
+		aDivTop[i].onmouseover=function(){
+			this.style.display='block';	
+		};
+		aDivTop[i].onmouseout=function(){
+			this.style.display='none';	
+		};	
+	}
+	
+	//第二部分图片变换
+	var box = document.getElementById("section_three");
+	var ul = box.getElementsByTagName('ul')[0];
+	var lis = ul.getElementsByTagName('li');
+	 
+	for (var i = 0; i < lis.length; i++) {
+	  lis[i].style.backgroundImage = 'url(img/'+(i+1)+'.jpg)';
+	 
+	  lis[i].onmouseover = function () {
+	 
+		for (var j = 0; j < lis.length; j++) {
+		  animate(lis[j], {"width": 100});
+		}
+	 
+		animate(this, {"width": 800});
+	  };
+	}
+	 
+	box.onmouseout = function () {
+	  for (var i = 0; i < lis.length; i++) {
+		animate(lis[i], {"width": 240});
+	  }
+	};
+	 
+	
+	function animate(obj, json) {
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function () {
+		var flag = true;
+		for (var k in json) {
+		  var leader = parseInt(getStyle(obj, k)) || 0;
+		  var target = json[k];
+		  var step = (target - leader) / 10;
+		  step = step > 0 ? Math.ceil(step) : Math.floor(step);
+		  leader = leader + step;
+		  obj.style[k] = leader + "px";
+		 
+		  console.log("代码还在运行");
+		  if (leader != target) {
+	 
+			flag = false;
+	 
+		  }
+		}
+	 
+		if (flag) {
+		  clearInterval(obj.timer);
+		}
+	  }, 15);
+	}
+	function getStyle(obj, attr) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(obj, null)[attr];
+  } else {
+    return obj.currentStyle[attr];
+  }
+} 
+	 
+};
+</script>
+</head>
+
+<body>
+<div id="top_nav" class="top_nav clear">
+	<a class="logo" href="#">
+    	<img src="../../img/logo3.gif" alt="logo" />
+        <h3>上海德咸软件有限公司</h3>
+    </a>
+	<ul class="top_nav_list">
+    	<li>
+        	<a href="../../indexb.html">首页</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../solution/plan.html">行业解决方案</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../production/product.html">产品中心</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="#">客户案例</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../service/help.html">服务支持</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../relation/contact.html">联系我们</a>
+            <span></span>
+        </li>
+    </ul>
+    <div class="script">
+    	<a href="#"></a>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul3">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>制造行业</dt>
+                    <dd><a href="ptext1.html">生产计划</a></dd>
+                    <dd><a href="ptext2.html">物料计划</a></dd>
+                    <dd><a href="ptext3.html">物料分发</a></dd>
+                    <dd><a href="ptext4.html">半成品入库</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>零售行业</dt>
+                    <dd><a href="ptext5.html">POS收银</a></dd>
+                    <dd><a href="ptext6.html">库存管理</a></dd>
+                    <dd><a href="ptext7.html">积分活动</a></dd>
+                    <dd><a href="ptext8.html">APP/微信</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>服装行业</dt>
+                    <dd><a href="#">订单输入</a></dd>
+                    <dd><a href="#">颜色尺码管理</a></dd>
+                    <dd><a href="#">布料计划</a></dd>
+                    <dd><a href="#">款式出样</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list hide_ul1_right">
+                    <dt>外贸行业</dt>
+                    <dd><a href="#">采购订单</a></dd>
+                    <dd><a href="#">销售订单</a></dd>
+                    <dd><a href="#">出入库记录</a></dd>
+                    <dd><a href="#">销售报表</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul2">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>ERP系列</dt>
+                    <dd><a href="#">进销存系统</a></dd>
+                    <dd><a href="#">采购系统</a></dd>
+                    <dd><a href="#">CRM系统</a></dd>
+                    <dd><a href="#">仓库管理系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>其他软件产品</dt>
+                    <dd><a href="#">商机管理系统</a></dd>
+                    <dd><a href="#">二维码</a></dd>
+                    <dd><a href="#">数据实时屏显系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>定制开发</dt>
+                    <dd><a href="#">JAVA开发</a></dd>
+                    <dd><a href="#">C/C++开发</a></dd>
+                    <dd><a href="#">APP开发/微信开发</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_right hide_ul1_list">
+                    <dt>代理软硬件产品</dt>
+                    <dd><a href="../../production/user/user1.html">帕拉迪堡垒机</a></dd>
+                    <dd><a href="../../production/user/user3.html">深信服上网行为管理</a></dd>
+                    <dd><a href="../../production/user/user2.html">亿塞通数据加密防泄漏软件</a></dd>
+                    <dd><a href="#">华为桌面云系统</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul4">
+            <li>
+            	<div class="hide_ul4_pic1">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgjICAvQUoqpnrpwEw4wE4TA.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>浙江尤奈特电机有限公司</h3>
+                    </div>
+                </div>
+            </li>
+            <li>
+            	<div class="hide_ul4_pic1 hide_ul4_pic2">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgqIGAvQUopsWvxQUw0QE4Pg.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>申银万国期货有限公司</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+    	<ul class="hide_ul1 hide_ul5">
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>德咸公司吸收全球客户的经验，结合国内外先进的管理理念和管理软件的实施方法，推出符合中国国情的标准软件实施方法“Xway实施方法论”。我们愿意运用我们在企业管理及IT技术方面的知识，帮助客户迈向一个更高的台阶！</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <div class="hide_service">
+        	<ul class="clear">
+            	<li>
+                	<img src="../../img/n2.jpg" alt="" />
+                </li>
+                <li>
+                	<p>
+                    	地址：乳山路206号申富大厦501室<br/>
+                        邮政编码:200120
+                    </p>
+                	<p>
+                    	公司总电：021-61557545<br/>
+                        电子邮箱:info@magnifiit.com
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="tab product_piv" ></div>
+<div class="main1">
+	<h3 class="main1_h3">POS收银系统</h3>
+    <p class="main1_p1">发布时间：2014-08-23 来源：互联网</p>
+    <h4 class="main1_p5">
+    	POS收银系统
+    </h4>
+    <p class="main1_p2">
+    	（1） POS收银一体化项目网络建设规范 
+    </p>
+    <p class="main1_p2">
+    	a) 网络标准
+
+    </p>
+    <p class="main1_p2">
+    	为实现广场内POS收银一体化项目各信息点之间的网络互联，达到信息共享的目的，网络系统采用的技术和设备应符合国际标准、国家标准和业界标准，为系统的扩展升级、与其他系统的互联提供良好的基础。  根据目前使用成熟度和应用范围，本规范采用IEEE的802.3x以太网技术作为组网技术标准，网络通信协议采用国际工业标准TCP/IP协议。
+    </p>
+    <p class="main1_p2">
+    	b) 网络基本架构
+    </p>
+    <p class="main1_p2">
+    	从POS收银一体化项目的特点考虑，网络采用二层物理架构，分为汇聚层和接入层，接入层包括接入交换机,用来接入POS收银终端；以及服务器接入交换机,用来提供服务器接入;汇聚层负责接入层汇聚。网络采用双星型冗余模型组网：
+    </p>
+    <p class="main1_p2">
+    	− 汇聚层采用两台设备，配置全光口交换机，两台彼此互联，利用堆叠或虚拟化 技术，保证设备冗余可靠； 
+    </p>
+    <p class="main1_p2">
+    	− 接入层交换机采用双归属连接方式，每台接入交换机用光纤分别与两台汇聚设 备相连，保证链路冗余可靠；
+    </p>
+    <p class="main1_p2">
+    	− 服务器接入交换机分别与两台汇聚设备相连，保证链路冗余可靠，  基本拓扑如下图： 
+    </p>
+    <div class="main1_p4">
+    	<img src="../aimage/p25.png" alt="基本拓扑" />
+    </div>
+    <p class="main1_p2">
+    	c) 设备连线标准
+    </p>
+    <p class="main1_p2">
+        网络设备互联的方式需要根据设备间距离而定，具体标准如下：
+    </p>
+    <p class="main1_p2">
+    	 i. 终端点位与接入间施工距离小于90米（两端预留总长度不超过 10米时，单根网线总长度不超过90米），采用千兆电口互联，布线建议超5类布线。
+    </p>
+    <p class="main1_p2">
+    	ii. 终端点位与接入间施工距离大于90米，小于500米，采用多模光 接口互联，采用多模光纤。
+    </p>
+    <p class="main1_p2">
+    	iii. 终端点位与接入间施工距离大于500米的，采用单模光接口互联， 采用单模光纤。 
+    </p>
+    <p class="main1_p2">
+    	iv. 接入间与汇聚设备之间均采用多模或单模光纤互联。
+    </p>
+    <p class="main1_p2">
+    	v. 终端点位与接入间网络布线必须采用一主一备方式，且主备线路 必须均在接入间连接至配线架。
+    </p>
+    <p class="main1_p2">
+    	vi. 接入间网络设备数量只需要考虑终端点位数量，不需要将主备线 路均插在交换机端口上。
+    </p>
+    <p class="main1_p2">
+    	vii. 接入间网络设备需要考虑适当冗余。
+    </p>
+    <p class="main1_p2">
+    	d) 技术要求和选型标准
+    </p>
+    <p class="main1_p2">
+    	i. 技术要求
+    </p>
+    <p class="main1_p2">
+    	汇聚交换机: 
+    </p>
+    <div class="main1_p4">
+    	<img src="../aimage/p26.png" alt="汇聚交换机" />
+    </div>
+    <p class="main1_p2">
+    	服务器接入交换机
+    </p>
+    <div class="main1_p4">
+    	<img src="../aimage/p27.png" alt="服务器接入交换机" />
+    </div>
+    <p class="main1_p2">
+    	接入交换机
+    </p>
+    <div class="main1_p4">
+    	<img src="../aimage/p28.png" alt="接入交换机" />
+    </div>
+    <p class="main1_p2">
+    	i.	选型标准
+    </p>
+    <p class="main1_p2">
+    	POS收银系统根据不同的类型，应从如下厂商中选择对应型号的设备，同时选择对应厂商的光纤模块等附件;
+    </p>
+    <div class="main1_p4">
+    	<img src="../aimage/p29.png" alt="分类" />
+    </div>
+    <p class="main1_p2">
+    	c)	设备维保及售后服务
+    </p>
+    <p class="main1_p2">
+    	i.	要求所购设备至少需含三年的硬件维保服务；
+    </p>
+    <p class="main1_p2">
+    	ii.	要求所购设备在设备原生产厂商处所注册的最终用户名称为万达集团或其下属企业。
+    </p>
+    <p class="main1_p2">
+    	（2）	POS收银项目配套综合布线需求
+    </p>
+    <p class="main1_p2">
+    	a)	POS收银项目网络拓扑结构
+    </p>
+    <div class="main1_p4">
+    	<img src="../aimage/p30.png" alt="万达广场POS收银项目网络结构图" />
+    </div>
+    <p class="main1_p2">
+    	b)	POS收银项目综合布线设备间要求
+    </p>
+    <p class="main1_p2">
+    	i.	设备间的数目，应按所服务的范围来考虑，如果配线电缆都在70m范围以内时，宜设置一个设备间，当超出一定范围时，应设置两个或多个设备间。
+    </p>
+    <p class="main1_p2">
+    	ii.	设备间面积原则上不应小于5㎡，主要用于放置网络设备的网络机柜和相应配线架，如现场条件限制，可与弱电竖井间共用。
+    </p>
+    <p class="main1_p2">
+    	iii.	设备间的位置及大小应根据安装设备的种类、容量及要求等因素综合考虑确定，应尽可能靠近建筑物电缆引入区和网络接口处。
+    </p>
+    <p class="main1_p2">
+    	c)	POS收银项目综合布线要求
+    </p>
+    <p class="main1_p2">
+    	i.	商业广场每个商铺应铺设4根网线，两根根用于pos机通信（一主一备），一根用于商铺互联网通信，一根用于商铺电话通信。4根网线均采用超五类线，建议采购西蒙或罗森伯格网线。
+    </p>
+    <p class="main1_p2">
+    	ii.	Pos机局域网内通信系统所使用的网络交换机应与其他系统使用的网络交换机相互隔离，不可共用；
+    </p>
+    <p class="main1_p2">
+    	iii.	楼内设备间内应配备标准网络机柜放置网络设备和相应配线架；
+    </p>
+    <p class="main1_p2">
+    	iv.	POS布线标准要求设备间与各商铺之间走线距离原则上不应超过70米，如现场条件限制，可适当放宽到90米，但需测试合格。如超过90米，应敷设六类线或光缆；
+    </p>
+    <p class="main1_p2">
+    	v.	设备间与核心网络机房之间应使用多模光纤用作网络通信；
+    </p>
+    <p class="main1_p2">
+    	vi.	核心网络机房的核心交换机需配置2台，一主一备，均要求三层交换机。设备间的接入层交换机，要求是可配置VLAN 的二层交换机（网络交换机之间尽可能不要用转发器或收发器等设备，直接用交换机的光纤口连接，减少后期的运维成本及风险）；
+    </p>
+     <p class="main1_p2">
+    	vii.	设备间内各网络交换机之间若需要级联需采用光纤跳线（若考虑费用问题，可采用六类跳线）；
+    </p>
+     <p class="main1_p2">
+    	viii.	各商铺使用的网线优先保证等级：pos机通信>电话通信>互联网通信，若出现线路故障，应优先保证高等级通信应用；
+    </p>
+     <p class="main1_p2">
+    	d)	POS收银项目综合布线管理要求
+    </p>
+     <p class="main1_p2">
+    	i.	管理应对设备间、电线间、进线间和工作区的配线设备、缆线、信息插座等设施，按一定的模式进行标识和记录；
+    </p>
+    <p class="main1_p2">
+    	ii.	综合布线系统宜按图纸资料进行管理，并应做到记录准确、及时更新、便于查阅；
+    </p>
+    <p class="main1_p2">
+    	iii.	综合布线的每条电缆、光缆、配线设备、端节点、安装通道和安装空间均给定相应的标识符；标识符中可包括名称、颜色、编号、字符串或其他合组；
+    </p>
+    <p class="main1_p2">
+    	iv.	配线设备、线缆、信息插座等硬件均应设置不易脱落和磨损的标签；
+    </p>
+    <p class="main1_p2">
+    	v.	电缆和光缆的两端均应标明相同的标识符；
+    </p>
+    <p class="main1_p2">
+    	vi.	设备间、电线间、进线间的配线设备宜采用统一的色标区别各类用途的配线区。
+    </p>
+    <p class="main1_p2">
+    	e)	POS收银项目综合布线布线工艺规范
+    </p>
+    <p class="main1_p2">
+    	i.	布线时线缆受到的拉力不能太大，拉力过大会使线缆内的扭绞线对层数发生变化，严重影响线缆抗噪声的能力，从而导致线对扭绞松开，甚至可能对线缆造成破坏。
+    </p>
+    <p class="main1_p2">
+    	ii.	要注意防止线缆可能会扭结。如果线缆扭结很厉害，那这根线缆就算是坏了，应被更换。
+    </p>
+    <p class="main1_p2">
+    	iii.	在布线过程中避免线缆弯曲过大，在拉力过大时，扭绞着的线对会松开，从而形成失配阻抗，使回损性能不能达标。弯曲半径应大于25毫米。而引导线缆的导管最小弯曲半径则是50毫米。 
+    </p>
+    <p class="main1_p2">
+    	iv.	线缆要避免束得过紧，以免压迫线缆。压力过大，会使线缆内的扭绞线对变形，从而影响线缆的一些性能，主要表现为回损过大。 
+    </p>
+    <p class="main1_p2">
+    	v.	尽可能少地去除外皮，可确保线缆内的扭绞率和扭绞层数。  
+    </p>
+    <p class="main1_p2">
+    	vi.	桥架设计合理，保证合适的线缆弯曲半径。上下左右绕过其他线槽时，转弯坡度要平缓，重点注意两端线缆下垂基本不受力。在整理、绑扎、安置线缆时，冗余线缆不要太长，不要让线缆叠加受力，线圈顺势盘整，固定扎绳不要勒得过紧。  
+    </p>
+   	<p class="main1_p2">
+    	vii.	所有线缆要做统一清晰标识，线缆用专业测线工具做100%测试。  
+    </p>
+    <p class="main1_p2">
+    	viii.	水平布线子系统要求在90m的距离范围内，这个距离范围是指从楼层接线间的配线架到工作区的信息点的实际长度。与水平布线子系统有关的其它线缆，包括配线架上的跳线和工作区的连线总共不应超过70m，建议跳线长度小于10m（6m以内为佳）。 楼内布线建议采用封闭式桥架，楼间布线应采用铠装光缆，弱电线缆应远离电磁干扰源。
+    </p>
+    <p class="explain">*本文来源于互联网，本着传播知识、有益学习和研究的目的进行的转载，为网友免费提供，并以尽力标明作者与出处，如有著作权人或出版方提出异议，本站将立即删除。如果您对文章转载有任何疑问请告之我们，以便我们及时纠正。联系方式：021-61557545。</p>
+</div>
+<div class="side_qq">
+	<a class="img_qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=981664509&site=qq&menu=yes">
+		<img src="../../img/qq8.png" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+	</a>
+    <strong>在线咨询</strong>
+</div> 
+<div class="footer">
+	<div class="footer_top_one">
+    	<div class="footer_top_two clear">
+        	<ul class="footer_top_three clear">
+            	<li>
+                	<dl>
+                    	<dt>行业解决方案</dt>
+                        <dd><a href="#">制造行业</a></dd>
+                        <dd><a href="#">零售行业</a></dd>
+                        <dd><a href="#">服装行业</a></dd>
+                        <dd><a href="#">外贸行业</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>产品中心</dt>
+                        <dd><a href="#">ERP系列</a></dd>
+                        <dd><a href="#">其他软件产品</a></dd>
+                        <dd><a href="#">定制开发</a></dd>
+                        <dd><a href="#">代理软硬件产品</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>客户案例</dt>
+                        <dd><a href="#">浙江尤奈特电机有限公司</a></dd>
+                        <dd><a href="#">申银万国期货有限公司</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>关于我们</dt>
+                        <dd><a href="#">公司简介</a></dd>
+                        <dd><a href="#">发展历程</a></dd>
+                        <dd><a href="#">管理团队</a></dd>
+                        <dd><a href="#">社会责任</a></dd>
+                        <dd><a href="#">新闻媒体</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="footer_top_four">
+            	<dl>
+                    <dt>关注我们</dt>
+                    <dd>
+                    	<a href="#"><img src="../../img/contact1.gif" alt="" /></a>
+                        <a href="#"><img src="../../img/contact2.gif" alt="" /></a>
+                    </dd>
+                    <dd>
+                    	<img src="../../img/contact3.png" alt="" class="contact_pic" />
+                        <span>官方微信</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom clear">
+    	<div class="footer_left">
+        	<span>&copy;&nbsp;2017上海德咸软件有限公司&nbsp;版权所有&nbsp;
+            	<a href="#" target="_blank">沪ICP备17003635号</a>
+            </span>
+        </div>
+        <ul class="footer_right">
+        	<li>
+            	<a href="#" target="_blank">法律声明</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">隐私保护</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">联系我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script src="../ajs/amenu.js"></script>
+
+
+
+

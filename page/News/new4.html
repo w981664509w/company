@@ -1,0 +1,500 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>上海德咸软件有限公司</title>
+<link rel="shortcut icon" href="../../img/dexian.ico" />
+<link rel="stylesheet" href="../css/public.css" />
+<link rel="stylesheet" href="../css/newstyle.css" />
+<script type="text/javascript" src="../js/textJs.js"></script>
+<script>
+window.onload=function(){
+	//导航部分
+	var oDivTop=document.getElementById('top_nav');
+	var oUlTop=oDivTop.getElementsByTagName('ul')[0];
+	var aLiTop=oUlTop.getElementsByTagName('li');
+	
+	var aDivTop=oDivTop.getElementsByClassName('hide_one');
+	
+	for(var i=1;i<aLiTop.length;i++){
+		aLiTop[i].index=i-1;
+		aLiTop[i].onmouseover=function(){
+			aDivTop[this.index].style.display='block';	
+		};
+		aLiTop[i].onmouseout=function(){
+			aDivTop[this.index].style.display='none';	
+		};	
+	}
+	
+	for(var i=0;i<aDivTop.length;i++){
+		aDivTop[i].onmouseover=function(){
+			this.style.display='block';	
+		};
+		aDivTop[i].onmouseout=function(){
+			this.style.display='none';	
+		};	
+	}
+	
+	//第二部分图片变换
+	var box = document.getElementById("section_three");
+	var ul = box.getElementsByTagName('ul')[0];
+	var lis = ul.getElementsByTagName('li');
+	 
+	for (var i = 0; i < lis.length; i++) {
+	  lis[i].style.backgroundImage = 'url(img/'+(i+1)+'.jpg)';
+	 
+	  lis[i].onmouseover = function () {
+	 
+		for (var j = 0; j < lis.length; j++) {
+		  animate(lis[j], {"width": 100});
+		}
+	 
+		animate(this, {"width": 800});
+	  };
+	}
+	 
+	box.onmouseout = function () {
+	  for (var i = 0; i < lis.length; i++) {
+		animate(lis[i], {"width": 240});
+	  }
+	};
+	 
+	
+	function animate(obj, json) {
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function () {
+		var flag = true;
+		for (var k in json) {
+		  var leader = parseInt(getStyle(obj, k)) || 0;
+		  var target = json[k];
+		  var step = (target - leader) / 10;
+		  step = step > 0 ? Math.ceil(step) : Math.floor(step);
+		  leader = leader + step;
+		  obj.style[k] = leader + "px";
+		 
+		  console.log("代码还在运行");
+		  if (leader != target) {
+	 
+			flag = false;
+	 
+		  }
+		}
+	 
+		if (flag) {
+		  clearInterval(obj.timer);
+		}
+	  }, 15);
+	}
+	function getStyle(obj, attr) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(obj, null)[attr];
+  } else {
+    return obj.currentStyle[attr];
+  }
+} 
+	 
+};
+</script>
+</head>
+
+<body>
+<div id="top_nav" class="top_nav clear">
+	<a class="logo" href="#">
+    	<img src="../image/logo3.gif" alt="logo" />
+        <h3>上海德咸软件有限公司</h3>
+    </a>
+	<ul class="top_nav_list">
+    	<li>
+        	<a href="../../indexb.html">首页</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../solution/plan.html">行业解决方案</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../production/product.html">产品中心</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="#">客户案例</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../service/help.html">服务支持</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../relation/contact.html">联系我们</a>
+            <span></span>
+        </li>
+    </ul>
+    <div class="script">
+    	<a href="#"></a>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul3">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>制造行业</dt>
+                    <dd><a href="../../solution/plan_text/ptext1.html">生产计划</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext2.html">物料计划</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext3.html">物料分发</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext4.html">半成品入库</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>零售行业</dt>
+                    <dd><a href="../../solution/plan_text/ptext5.html">POS收银</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext6.html">库存管理</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext7.html">积分活动</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext8.html">APP/微信</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>服装行业</dt>
+                    <dd><a href="#">订单输入</a></dd>
+                    <dd><a href="#">颜色尺码管理</a></dd>
+                    <dd><a href="#">布料计划</a></dd>
+                    <dd><a href="#">款式出样</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list hide_ul1_right">
+                    <dt>外贸行业</dt>
+                    <dd><a href="#">采购订单</a></dd>
+                    <dd><a href="#">销售订单</a></dd>
+                    <dd><a href="#">出入库记录</a></dd>
+                    <dd><a href="#">销售报表</a></dd>
+                </dl>
+            </li>
+            <li>
+                <img src="">
+                <p></p>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul2">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>ERP系列</dt>
+                    <dd><a href="#">进销存系统</a></dd>
+                    <dd><a href="#">采购系统</a></dd>
+                    <dd><a href="#">CRM系统</a></dd>
+                    <dd><a href="#">仓库管理系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>其他软件产品</dt>
+                    <dd><a href="#">商机管理系统</a></dd>
+                    <dd><a href="#">二维码</a></dd>
+                    <dd><a href="#">数据实时屏显系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>定制开发</dt>
+                    <dd><a href="#">JAVA开发</a></dd>
+                    <dd><a href="#">C/C++开发</a></dd>
+                    <dd><a href="#">APP开发/微信开发</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_right hide_ul1_list">
+                    <dt>代理软硬件产品</dt>
+                    <dd><a href="../../production/user/user1.html">帕拉迪堡垒机</a></dd>
+                    <dd><a href="../../production/user/user3.html">深信服上网行为管理</a></dd>
+                    <dd><a href="../../production/user/user2.html">亿塞通数据加密防泄漏软件</a></dd>
+                    <dd><a href="#">华为桌面云系统</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul4">
+            <li>
+            	<div class="hide_ul4_pic1">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgjICAvQUoqpnrpwEw4wE4TA.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>浙江尤奈特电机有限公司</h3>
+                    </div>
+                </div>
+            </li>
+            <li>
+            	<div class="hide_ul4_pic1 hide_ul4_pic2">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgqIGAvQUopsWvxQUw0QE4Pg.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>申银万国期货有限公司</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+    	<ul class="hide_ul1 hide_ul5">
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../image/n2.jpg" alt="" />
+                    <p>德咸公司吸收全球客户的经验，结合国内外先进的管理理念和管理软件的实施方法，推出符合中国国情的标准软件实施方法“Xway实施方法论”。我们愿意运用我们在企业管理及IT技术方面的知识，帮助客户迈向一个更高的台阶！</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../image/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../image/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <div class="hide_service">
+        	<ul class="clear">
+            	<li>
+                	<img src="../image/n2.jpg" alt="" />
+                </li>
+                <li>
+                	<p>
+                    	地址：乳山路206号申富大厦501室<br/>
+                        邮政编码:200120
+                    </p>
+                	<p>
+                    	公司总电：021-61557545<br/>
+                        电子邮箱:info@magnifiit.com
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="tab">
+	<div class="tab_pic">
+    </div>
+</div>
+<div class="main1">
+	<h3 class="main1_h3">知识和学习管理 软件外包供应商的发展路径</h3>
+    <p class="main1_p1">发布时间：2016-07-07&nbsp;&nbsp;作者：北京/蒲春梅 中国人民大学</p>
+    <p class="main4_p2">
+    	知识对软件外包业务双方的意义
+    </p>
+    <p class="main3_p2">
+    	软件外包项目是知识型业务，是委托方和供应商各自 的知识积累、运用能力、知识转移的流畅程度，对项目成败 具有关键作用。软件外包产品和服务的生产过程是知识密 集型活动，对供应商的专业性要求很高。只有在软件开发、 信息技术和项目相关的专业领域，拥有丰富的知识积累和 应用经验，才能为客户企业提供能够满足其需求的专业产 品和服务。因此，专业知识和行业经验是影响供应商客户 价值的重要因素。供应商的知识包括：专业的软件产品开 发和客户服务知识，对客户所在行业的运营管理知识，将 专业知识与客户业务进行整合的应用技能。获取这些知 识，是通过对一系列长期积累的历史信息、数据加工而成 的。知识不会明显地体现出来，也不会轻易得到，而是供应 商需要对自身的信息和数据进行仔细的甄别、筛选和分 析，才能得到有效的知识。同时，对于来自外部的知识，供 应商还必须加以识别和验证，才能利用。 
+    </p>
+    <p class="main3_p2">
+    	委托方与供应商之间的知识转移、外包关系专用性投 资、外包需求的不确定性，是决定外包成功与否的三个重 要因素。软件外包过程中的知识管理已超越了企业边界， 涉及委托方与供应商的双向知识转移。双方的相关知识转 移对外包项目的成败有重大影响，知识转移不顺畅是导致 软件外包项目失败的一个重要原因。因此，供应商要有效 地从客户那里获取项目成功必要的知识，成功地将其运用 到项目中，并将其变为企业自身知识积累的一部分。这一 点无论对于软件外包项目，还是对于供应商的成长都至关 重要。吸收能力是企业评价、消化和商业化运用新的外部 知识的能力，是对企业基本学习过程的评价，也是企业提 高创新能力的关键性要素，它决定了企业获取知识的溢出 效应的多少。吸收能力强的企业不仅可迅捷地了解和利用 外部环境中的新知识，而且可使企业对准备引进的知识进 行详细的评估，进而对所吸收知识的商品化运用作出准确的预测。 
+    </p>
+    <p class="main4_p2">
+    	知识在软件外包质量控制中的意义 
+    </p>
+    <p class="main3_p2">
+        产品和服务的质量是决定外包项目成败的重要因素， 而供应商的知识积累和学习知识、吸收知识、应用知识和创 造知识的能力对质量起着关键作用。同时，供应商对知识的 学习、应用、集成和创造也贯穿于整个开发过程。在开发过 程中，客户与供应商之间只是交换和积累过程（见下图）。
+    </p>
+    <img src="../image/main3_pic2.png" alt="" class="main3_pic3"/>
+    <p class="main3_p2">
+        1.需求分析
+    </p>
+    <p class="main3_p2">
+        对于任何项目，需求分析都是项目最初和最重要的步 骤之一。对于软件外包项目来说，有效的需求分析是保障 项目质量的第一步。从知识的角度看，需求分析是委托方 与供应商之间一次有目的、有组织的知识转移过程。成功 的需求分析，不仅可帮助供应商理解客户的需求、学习客 户知识，而且也是帮助客户系统化整理自身知识的过程。 
+    </p>
+    <p class="main3_p2">
+        软件首先要满足客户的需求。卡内基·梅隆大学软件 工程学院的 Watts·Humphrey指出： “软件产品必须提供用 户所需的功能，如果做不到这一点，什么产品都没有意 义。”Peter·Denning也强调： “越是关注客户的满意度，软件就越有可能达到质量要求。程序的正确性固然重要，但不 足以体现软件的价值。” 
+    </p>
+    <p class="main3_p2">
+        需求分析是外包供应商对客户的知识的学习和吸收 过程。根据知识分类的观点，国外有学者认为，这些知识既 包括显性知识，也包括隐性知识和缄默知识。对后两者的 学习和理解，对于供应商提升产品和服务质量更为关键， 也更加困难。  
+    </p>
+    <p class="main3_p2">
+        （1）对于明确的需求（显性知识），通常由客户通过需 求列表提供给供应商。这种方式表明，客户不仅在 IT方面 的需求明确，而且在这个领域具有一定的知识积累，供应 商应根据自身的 IT专业知识和该领域业务知识，学习和 吸收客户的需求。这些明确的需求，是保障产品和服务质 量的基础。无法满足这些需求的产品和服务，是客户无法 接受的。  
+    </p>
+    <p class="main3_p2">
+        （2）对于模糊和隐含的需求（隐性知识），要求供应商 与客户进行更深入的沟通，积极引导客户参与，并进行细 化、分解和明确说明这些需求，并在必要时通过开发原型 的方式与客户进行验证。最后还要将模糊的需求文档化， 也就是将隐性知识显性化，成为产品质量标准的一部分。 这些文档既可作为与客户沟通的工具，也是供应商自身 积累知识的重要手段，同时客户也可通过这一过程获得 更大的价值。只有满足用户这些需求的产品和服务，才是 合格的。  
+    </p>
+    <p class="main3_p2">
+       （3）满足客户无法或不愿明确表达的需求（缄默知 识），是对供应商自身知识积累、吸收和创新能力的挑战。 这是需求分析中最困难的部分，通常也是具有较大客户价 值的部分，因为缄默知识经常是客户核心竞争力的所在。 通常，缄默知识隐含在客户职能部门的人员中，供应商需 要通过与客户人员的反复沟通，逐步理解和体会相应的需 求，并根据自身对客户所在领域的专业积累，为客户提供 相应的解决方案。这部分需求虽然可能不会明确写在合同 中，但是它们是产品和服务能否赢得客户满意的重要因 素，也是质量合格产品和高质量产品的最大差异。  
+    </p>
+    <p class="main3_p2">
+        供应商获取和吸收以上三类需求的难度逐渐加大，同 时理解和掌握这些知识的意义也依次递增。供应商只有吸 收和积累更多的隐性知识和缄默知识，才能更好地理解客 户，并创造新的属于供应商自己的知识，提升自身的核心 竞争力。  
+    </p>
+    <p class="main3_p2">
+        2.设计   
+    </p>
+    <p class="main3_p2">
+        软件设计过程是集中体现外包供应商 IT专业知识与 客户领域知识集成应用能力的过程。软件产品的设计质量 主要体现在产品的构架上。  
+    </p>
+    <p class="main3_p2">
+        （1）低质量的构架设计会引起大范围的质量问题，包括（软件）脆弱、缺乏升级能力和难以修改等。随着应用软 件项目不断发展，这些问题不仅会变得越来越难以解决， 而且纠正缺陷的成本，随着应用软件从设计到开发、测试 和部署，以指数在增长。充分的 IT专业知识积累是良好设 计的基础。对于外包企业来说，只有拥有足够 IT专业知识 和产品设计能力的专业人才，才可能提出质量良好的设计 方案。   
+    </p>
+    <p class="main3_p2">
+        （2）优秀的架构设计建立在对客户需求和领域知识的 理解之上。只有充分掌握包括模糊需求和隐含需求在内的 客户需求，才能有效地利用 IT专业知识，发现、隔离和解 决设计和开发期间结构上的不足；只有深刻理解客户所在 的业务领域，才能对未来可能出现的新的需求和需求变 化，作出合理预期，并在设计上保障足够的灵活性。 
+    </p>
+    <p class="main3_p2">
+        在设计阶段，软件外包供应商应将 IT技术知识与对 客户知识的吸收相结合，从而提供高质量的软件架构设 计。这种结合应用会帮助供应商进行技术积累，同时根据 大量客户的需求，创造新的有价值的知识。  
+    </p>
+    <p class="main3_p2">
+        4.测试 
+    </p>
+    <p class="main3_p2">
+        管理系统的功能和性能测试，是持续保障质量的一个 主要部分，是验证供应商对产品的理解与客户真正需求之 间的差异的过程。执行这些测试的 QE（质量工程师）团队， 在验证应用软件实现客户需求和业务规则方面，扮演了一 个支持客户的角色，他们将站在客户的角度，与客户一起 对产品进行验证，并检视缺陷。不过，保障质量不只是 QE 团队的职责，测试也不只是他们的唯一领域。某些测试可 以并且应当由开发人员执行，在某些情况下，可由构架师 执行。   
+    </p>
+    <p class="main3_p2">
+        QE团队的任务是代表客户验证产品功能，而不仅仅 是发现和清除一般性的缺陷（bug），他们的工作需要贯穿 于整个生命周期。测试人员将从独立的角度理解和吸收客 户的知识。   
+    </p>
+    <p class="main3_p2">
+        5.部署 
+    </p>
+    <p class="main3_p2">
+        业务应用软件必须持续运行。即使最完整的过程，也 不可避免地会产生功能性和可靠性错误。如果应用软件满 足或超过了服务标准协定（SLAs）， IT团队就必须承担保 障质量的职责。通过持续地监测和评估，团队成员可确保 一个已部署的系统的生存能力，并迅速地发现问题、纠正 问题。  
+    </p>
+    <p class="main3_p2">
+        软件完成之后，还要根据客户业务需求的变化进行更 新和升级，在这一过程中，供应商的知识也会随之更新和 升级。 
+    </p>
+    <p class="main4_p2">
+    	基于知识基础观的软件外包供应商的 竞争优势、发展时期和应对策略       
+    </p>
+    <p class="main3_p2">
+       1.竞争优势  
+    </p>
+    <p class="main3_p2">
+        以企业竞争优势的知识基础观，对企业的知识本质进 行重新思考。它认为具有竞争优势的企业，具有独特的知 识和对知识进行协调、整合的能力，这种能力是其他经济 组织形式所不具备的，这一观点进一步推进了对竞争优势 来源的认识。由于知识在软件外包行业和软件外包项目过 程中的关键作用，因此对于软件外包供应商，以知识基础 观研究如何发展壮大并获取竞争优势显得更为重要。 
+    </p>
+    <p class="main3_p2">
+        研究企业竞争优势的传统观点，主要包括行业定位观 和资源基础观，它们从企业外部环境和内部环境来界定企 业竞争优势的来源。而知识基础观则从企业知识的角度出 发，即一个比行业定位观和资源基础观更为开放、动态的 视角来考察企业。它认为：企业是一个知识处理系统，企业 的核心能力来源于内部的缄默知识；企业内的知识以人为 载体，通过各种手段如文本、技术系统、言传身教等，实现 部分和完全共享；企业通过对已有知识的整合和创造，产 生能带来更大经济价值和竞争优势的新知识。企业的这一特征使得其同时面临两个主要任务：一是对企业内部的个 人知识进行整合、创新，以创造出新的价值更大的专门知 识；二是从外部有效获取企业所需的知识。  
+    </p>
+    <p class="main3_p2">
+        作为知识型企业，软件外包供应商的核心能力使其拥 有的知识，应用知识实现客户价值的能力、创造新知识和 新价值的能力。企业需要对内进行有效的知识管理，将自 身积累的知识进行分类、整理，并在内部进行共享；对外需 要不断地学习和吸收新的专业知识和客户知识，扩展自身 的知识资产。同时，由于大量的知识，特别是隐性知识和缄 默知识掌握在员工的手上，并通过他们应用知识并创造新 的知识，因此供应商应注重对员工进行培养和培训，并应 用各种手段保护自身的人力资源。  
+    </p>
+    <p class="main3_p2">
+        2.成长时期和应对策略 
+    </p>
+    <p class="main3_p2">
+        运用知识基础观，可分析软件外包供应商的各个发展 时期，并提出其在各个发展时期中，应采取的应对策略。 
+    </p>
+    <p class="main3_p2">
+        （1）初创期。在初创期，因发展不稳定，供应商缺乏规 章制度、资本、人力资源，创业者集权、经验不足等，具有很 大的风险性。此时供应商应集中资源优势，确立发展方向， 如专业发展方向，投资、知识学习和积累的方向等。   
+    </p>
+    <p class="main3_p2">
+        （2）成长期。在成长期，经过一定的实践，供应商已积 累了一些知识，在内部也形成了相对有效的管理模式，市 场逐渐扩大，利润逐渐增多。此时供应商应大力进行知识 投资，提高员工的知识水平和技能，培养高素质的人才，为 进一步发展壮大提供大量的资源保障；进行深入的专业学 习，对具有专长的业务方向、市场和客户进行全面的分析， 这是进行知识投入的阶段，也是积累知识的良好时期。建 立学习知识的体制和团队的目标，是提高自身价值的知识 储备。  
+    </p>
+    <p class="main3_p2">
+        （3）成熟期。在成熟期，供应商已逐步形成了管理体制 和专业领域，占有一定的市场份额，熟悉客户所在行业，与 客户的关系稳定，企业运行良好，是更多地投入知识的创 新和应用阶段，应为客户开发新的服务产品，帮助客户进 行知识更新。此时不仅应加强对知识的重新利用，而且应 将投资的重点转向引导和启发客户应用先进的工具、平台 和服务。还要增加对内部人员的知识学习投入，因为在成 熟期，往往预示着面临更大的挑战，只有拥有高素质的人 才，才能形成企业发展新的动力。
+    </p>
+    <p class="main3_p2">
+        （4）衰退期。在衰退期，供应商可能因客户所在的行业 已衰退，也可能因自身对知识管理不善而无法适应市场的 需要，慢慢退出市场。此时供应商应利用积累的知识、客户 迅速转型，积极获取新知识，并有效地进行管理和积累，以 走出衰退期，重新发展。
+    </p>
+    <p class="explain">*本文来源于互联网，本着传播知识、有益学习和研究的目的进行的转载，为网友免费提供，并以尽力标明作者与出处，如有著作权人或出版方提出异议，本站将立即删除。如果您对文章转载有任何疑问请告之我们，以便我们及时纠正。联系方式：021-61557545。</p>
+    <div class="main1_p3 clear">
+    	<h4 class="main1_h4">
+        	相关阅读
+            <span></span>
+        </h4>
+    </div>
+    <ul class="main1_p4 clear">
+    	<li class="main1_p4_li">
+        	<ol>
+            	<li><i></i><a href="new1.html">中国软件外包行业业务规模将持续增长</a></li>
+                <li><i></i><a href="new2.html">全球软件外包市场前景分析</a></li>
+                <li><i></i><a href="new3.html">软件外包行业下半年策略：估值合理,4Q反弹,成长明确</a></li>
+            </ol>
+        </li>
+        <li class="main1_p4_li">
+        	<ol>
+            	<li><i></i><a href="new4.html">知识和学习管理 软件外包供应商的发展路径</a></li>
+                <li><i></i><a href="new5.html">德咸软件公司签约浙江尤奈特电机有限公司</a></li>
+                <li><i></i><a href="new6.html">德咸软件公司签约申银万国期货有限公司</a></li>
+            </ol>
+        </li>
+    </ul>
+</div>
+<div class="side_qq">
+	<a class="img_qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=981664509&site=qq&menu=yes">
+		<img src="../../img/qq8.png" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+	</a>
+    <strong>在线咨询</strong>
+</div> 
+<div class="footer">
+	<div class="footer_top_one">
+    	<div class="footer_top_two clear">
+        	<ul class="footer_top_three clear">
+            	<li>
+                	<dl>
+                    	<dt>行业解决方案</dt>
+                        <dd><a href="#">制造行业</a></dd>
+                        <dd><a href="#">零售行业</a></dd>
+                        <dd><a href="#">服装行业</a></dd>
+                        <dd><a href="#">外贸行业</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>产品中心</dt>
+                        <dd><a href="#">ERP系列</a></dd>
+                        <dd><a href="#">其他软件产品</a></dd>
+                        <dd><a href="#">定制开发</a></dd>
+                        <dd><a href="#">代理软硬件产品</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>客户案例</dt>
+                        <dd><a href="#">浙江尤奈特电机有限公司</a></dd>
+                        <dd><a href="#">申银万国期货有限公司</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>关于我们</dt>
+                        <dd><a href="#">公司简介</a></dd>
+                        <dd><a href="#">发展历程</a></dd>
+                        <dd><a href="#">管理团队</a></dd>
+                        <dd><a href="#">社会责任</a></dd>
+                        <dd><a href="#">新闻媒体</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="footer_top_four">
+            	<dl>
+                    <dt>关注我们</dt>
+                    <dd>
+                    	<a href="#"><img src="../../img/contact1.gif" alt="" /></a>
+                        <a href="#"><img src="../../img/contact2.gif" alt="" /></a>
+                    </dd>
+                    <dd>
+                    	<img src="../../img/contact3.png" alt="" class="contact_pic" />
+                        <span>官方微信</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom clear">
+    	<div class="footer_left">
+        	<span>&copy;&nbsp;2017上海德咸软件有限公司&nbsp;版权所有&nbsp;
+            	<a href="#" target="_blank">沪ICP备17003635号</a>
+            </span>
+        </div>
+        <ul class="footer_right">
+        	<li>
+            	<a href="#" target="_blank">法律声明</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">隐私保护</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">联系我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

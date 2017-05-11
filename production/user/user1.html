@@ -1,0 +1,506 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>上海德咸软件有限公司</title>
+<link rel="shortcut icon" href="../../img/dexian.ico" />
+<link rel="stylesheet" href="../../css/publicTab.css" />
+<link rel="stylesheet" href="../pcss/stylem.css" />
+<script>
+window.onload=function(){
+	//导航部分
+	var oDivTop=document.getElementById('top_nav');
+	var oUlTop=oDivTop.getElementsByTagName('ul')[0];
+	var aLiTop=oUlTop.getElementsByTagName('li');
+	
+	var aDivTop=oDivTop.getElementsByClassName('hide_one');
+	
+	for(var i=1;i<aLiTop.length;i++){
+		aLiTop[i].index=i-1;
+		aLiTop[i].onmouseover=function(){
+			aDivTop[this.index].style.display='block';	
+		};
+		aLiTop[i].onmouseout=function(){
+			aDivTop[this.index].style.display='none';	
+		};	
+	}
+	
+	for(var i=0;i<aDivTop.length;i++){
+		aDivTop[i].onmouseover=function(){
+			this.style.display='block';	
+		};
+		aDivTop[i].onmouseout=function(){
+			this.style.display='none';	
+		};	
+	}
+	
+	//第二部分图片变换
+	var box = document.getElementById("section_three");
+	var ul = box.getElementsByTagName('ul')[0];
+	var lis = ul.getElementsByTagName('li');
+	 
+	for (var i = 0; i < lis.length; i++) {
+	  lis[i].style.backgroundImage = 'url(img/'+(i+1)+'.jpg)';
+	 
+	  lis[i].onmouseover = function () {
+	 
+		for (var j = 0; j < lis.length; j++) {
+		  animate(lis[j], {"width": 100});
+		}
+	 
+		animate(this, {"width": 800});
+	  };
+	}
+	 
+	box.onmouseout = function () {
+	  for (var i = 0; i < lis.length; i++) {
+		animate(lis[i], {"width": 240});
+	  }
+	};
+	 
+	
+	function animate(obj, json) {
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function () {
+		var flag = true;
+		for (var k in json) {
+		  var leader = parseInt(getStyle(obj, k)) || 0;
+		  var target = json[k];
+		  var step = (target - leader) / 10;
+		  step = step > 0 ? Math.ceil(step) : Math.floor(step);
+		  leader = leader + step;
+		  obj.style[k] = leader + "px";
+		 
+		  console.log("代码还在运行");
+		  if (leader != target) {
+	 
+			flag = false;
+	 
+		  }
+		}
+	 
+		if (flag) {
+		  clearInterval(obj.timer);
+		}
+	  }, 15);
+	}
+	function getStyle(obj, attr) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(obj, null)[attr];
+  } else {
+    return obj.currentStyle[attr];
+  }
+} 
+	 
+};
+</script>
+</head>
+
+<body>
+<div id="top_nav" class="top_nav clear">
+	<a class="logo" href="#">
+    	<img src="../../img/logo3.gif" alt="logo" />
+        <h3>上海德咸软件有限公司</h3>
+    </a>
+	<ul class="top_nav_list">
+    	<li>
+        	<a href="../../indexb.html">首页</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../solution/plan.html">行业解决方案</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../product.html">产品中心</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="#">客户案例</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../service/help.html">服务支持</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../relation/contact.html">联系我们</a>
+            <span></span>
+        </li>
+    </ul>
+    <div class="script">
+    	<a href="#"></a>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul3">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>制造行业</dt>
+                    <dd><a href="../../solution/plan_text/ptext1.html">生产计划</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext2.html">物料计划</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext3.html">物料分发</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext4.html">半成品入库</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>零售行业</dt>
+                    <dd><a href="../../solution/plan_text/ptext5.html">POS收银</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext6.html">库存管理</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext7.html">积分活动</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext8.html">APP/微信</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>服装行业</dt>
+                    <dd><a href="#">订单输入</a></dd>
+                    <dd><a href="#">颜色尺码管理</a></dd>
+                    <dd><a href="#">布料计划</a></dd>
+                    <dd><a href="#">款式出样</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list hide_ul1_right">
+                    <dt>外贸行业</dt>
+                    <dd><a href="#">采购订单</a></dd>
+                    <dd><a href="#">销售订单</a></dd>
+                    <dd><a href="#">出入库记录</a></dd>
+                    <dd><a href="#">销售报表</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul2">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>ERP系列</dt>
+                    <dd><a href="#">进销存系统</a></dd>
+                    <dd><a href="#">采购系统</a></dd>
+                    <dd><a href="#">CRM系统</a></dd>
+                    <dd><a href="#">仓库管理系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>其他软件产品</dt>
+                    <dd><a href="#">商机管理系统</a></dd>
+                    <dd><a href="#">二维码</a></dd>
+                    <dd><a href="#">数据实时屏显系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>定制开发</dt>
+                    <dd><a href="#">JAVA开发</a></dd>
+                    <dd><a href="#">C/C++开发</a></dd>
+                    <dd><a href="#">APP开发/微信开发</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_right hide_ul1_list">
+                    <dt>代理软硬件产品</dt>
+                    <dd><a href="user1.html">帕拉迪堡垒机</a></dd>
+                    <dd><a href="user3.html">深信服上网行为管理</a></dd>
+                    <dd><a href="user2.html">亿塞通数据加密防泄漏软件</a></dd>
+                    <dd><a href="#">华为桌面云系统</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul4">
+            <li>
+            	<div class="hide_ul4_pic1">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgjICAvQUoqpnrpwEw4wE4TA.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>浙江尤奈特电机有限公司</h3>
+                    </div>
+                </div>
+            </li>
+            <li>
+            	<div class="hide_ul4_pic1 hide_ul4_pic2">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgqIGAvQUopsWvxQUw0QE4Pg.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>申银万国期货有限公司</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+    	<ul class="hide_ul1 hide_ul5">
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>德咸公司吸收全球客户的经验，结合国内外先进的管理理念和管理软件的实施方法，推出符合中国国情的标准软件实施方法“Xway实施方法论”。我们愿意运用我们在企业管理及IT技术方面的知识，帮助客户迈向一个更高的台阶！</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <div class="hide_service">
+        	<ul class="clear">
+            	<li>
+                	<img src="../../img/n2.jpg" alt="" />
+                </li>
+                <li>
+                	<p>
+                    	地址：乳山路206号申富大厦501室<br/>
+                        邮政编码:200120
+                    </p>
+                	<p>
+                    	公司总电：021-61557545<br/>
+                        电子邮箱:info@magnifiit.com
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="tab product_pic" ></div>
+<div class="main2">
+	<h3 class="main2_h3">帕拉迪堡垒机</h3>
+    <div class="main2_p1"></div>
+    <div class="main2_p4">
+    	<img src="../pimage/p8.jpg" alt="帕拉迪堡垒机" />
+    </div>
+    <p>
+    	堡垒机，即在一个特定的网络环境下，为了保障网络和数据不受来自外部和内部用户的入侵和破坏，而运用各种技术手段实时收集和监控网络环境中每一个组成部分的系统状态、安全事件、网络活动，以便集中报警、及时处理及审计定责。 
+    </p>
+    <p>
+    	其从功能上讲，它综合了核心系统运维和安全审计管控两大主干功能，从技术实现上讲，通过切断终端计算机对网络和服务器资源的直接访问，而采用协议代理的方式，接管了终端计算机对网络和服务器的访问。形象地说，终端计算机对目标的访问，均需要经过运维安全审计的翻译。打一个比方，运维安全审计扮演着看门者的工作，所有对网络设备和服务器的请求都要从这扇大门经过。因此运维安全审计能够拦截非法访问，和恶意攻击，对不合法命令进行命令阻断，过滤掉所有对目标设备的非法访问行为，并对内部人员误操作和非法操作进行审计监控，以便事后责任追踪。
+    </p>
+    <p>
+    	安全审计作为企业信息安全建设不可缺少的组成部分，逐渐受到用户的关注，是企业安全体系中的重要环节。同时，安全审计是事前预防、事中预警的有效风险控制手段，也是事后追溯的可靠证据来源。
+    </p>
+  
+    <h4>堡垒机功能</h4>
+    <h5>1、身份认证及授权管理</h5>
+    <h5>健全的用户管理机制和灵活的认证方式</h5>
+    <p>
+    	为解决企业IT系统中普遍存在的因交叉运维而存在的无法定责的问题,堡垒机提出了采用“集中账号管理“的解决办法；集中帐号管理可以完成对帐号整个生命周期的监控和管理，而且还降低了企业管理大量用户帐号的难度和工作量。同时，通过统一的管理还能够发现帐号中存在的安全隐患，并且制定统一的、标准的用户帐号安全策略。针对平台中创建的运维用户可以支持静态口令、动态口令、数字证书等多种认证方式；支持密码强度、密码有效期、口令尝试死锁、用户激活等安全管理功能；支持用户分组管理;支持用户信息导入导出，方便批量处理。
+    </p>
+    <h5>细粒度、灵活的授权</h5>
+    <p>
+    	系统提供基于用户、运维协议、目标主机、运维时间段（年、月、日、周、时间）等组合的授权功能，实现细粒度授权功能，满足用户实际授权的需求。授权可基于：用户到资源、用户组到资源、用户到资源组、用户组到资源组。
+    </p>
+    <p>
+    	单点登录功能是运维人员通过堡垒机认证和授权后，堡垒机根据配置策略实现后台资源的自动登录。保证运维人员到后台资源帐号的一种可控对应，同时实现了对后台资源帐号的口令统一保护与管理。系统提供运维用户自动登录后台资源的功能。堡垒机能够自动获取后台资源帐号信息并根据口令安全策略，定期自动修改后台资源帐号口令；根据管理员配置，实现运维用户与后台资源帐号相对应，限制帐号的越权使用；运维用户通过堡垒机认证和授权后，SSA根据分配的帐号实现自动登录后台资源。
+    </p>
+    <h4>运维事件事中控制</h4>
+    <h5>实时监控</h5>
+    <p>
+    	监控正在运维的会话，信息包括运维用户、运维客户端地址、资源地址、协议、开始时间等：监控后台资源被访问情况，提供在线运维操作的实时监控功能。针对命令交互性协议，可以实时监控正在运维的各种操作，其信息与运维客户端所见完全一致。
+    </p>
+    <h5>违规操作实时告警与阻断</h5>
+    <p>
+    	针对运维过程中可能存在的潜在操作风险，SSA根据用户配置的安全策略实施运维过程中的违规操作检测，对违规操作提供实时告警和阻断，从而达到降低操作风险及提高安全管理与控制的能力。对于非字符型协议的操作能够实时阻断；
+    </p>
+    <p>
+    	字符型协议的操作可以通过用户配置的命令行规则进行规则匹配，实现告警与阻断。告警动作支持权限提升、会话阻断、邮件告警、短信告警等。
+    </p>
+    <h4>运维事件事后审计</h4>
+    <h5>对常见协议能够记录完整的会话过程</h5>
+    <p>
+    	堡垒机能够对日常所见到的运维协议如SSH/FTP/Telnet/SFTP /Http/Https/RDP/X11/VNC等会话过程进行完整的记录，以满足日后审计的需求；审计结果可以录像和日志方式呈现，录像信息包括运维用户名称、目标资源名称、客户端IP、客户端计算机名称、协议名、运维开始时间、结束时间、运维时长等信息
+    </p>
+    <h5>详尽的会话审计与回放</h5>
+    <p>
+    	运维人员操作录像以会话为单位，能够对用户名、日期和内容进行单项查询和组合式查询定位。组合式查询则按运维用户、运维地址、后台资源地址、协议、起始时间、结束时间和操作内容中关键字等组合方式进行；针对命令字符串方式的协议，提供逐条命令及相关操作结果的显示：提供图像形式的回放，真实、直观、可视地重现当时的操作过程；回放提供快放、慢放、拖拉等方式，针对检索的键盘输入的关键字能够直接定位定位回放；针对RDP、X11、VNC协议，提供按时间进行定位回放的功能。
+    </p>
+    <h5>丰富的审计报表功能</h5>
+    <p>
+    	堡垒机系统平台能够对运维人员的日常操作、会话已经管理员对审计平台进行的操作配置或者是报警次数等做各种报表统计分析。报表包括：日常报表、会话报表、自审计操作报表、告警报表、综合统计报表,并可根据个性需求设计和展现自定义报表。以上报表可以EXCEL格式输出，并且可以以折线、柱状、圆饼图等图形方式展现出来。
+    </p>
+    <h5>应用发布</h5>
+    <p>
+    	针对用户独特的运维需求，堡垒机推出了业界虚拟桌面主机安全操作系统设备，通过其配合堡垒机进行审计能够完全达到审计、控制、授权的要求，配合此产品,可实现对数据库维护工具、pcAnywhere、DameWare等不同工具的运维操作进行监控和审计。
+    </p>
+   	<h3>特点</h3>
+    <h4>超全的审计协议范围</h4>
+    <p>
+    	平台采用协议分析、基于数据包还原虚拟化技术，实现操作界面模拟，将所有的操作转换为图形化界面予以展现，实现100%审计信息不丢失：针对运维操作图形化审计功能的展现外，同时还能对字符进行分析，包括命令行操作的命令以及回显信息和非字符型操作时键盘、鼠标的敲击信息。
+    </p>
+    <h5>系统支持的审计协议以及工具包括：</h5>
+    <p>
+    	字符串操作：SSH/Telnet（工具：SecureCRT/Putty/Xshell）
+    </p>
+    <p>
+    	图形操作： RDP/VNC/X11/pcAnywhere/DameWare等
+    </p>
+    <p>
+    	其他协议： FTP/SFTP/Http/Https等
+    </p>
+    <p>
+    	数据库工具:Oracle/sqlserver/Mysql客户端工具
+    </p>
+    <h4>协议以及工具包括</h4>
+    <p>
+    	字符串操作：SSH/Telnet （工具：SecureCRT/Putty/Xshell）
+    </p>
+    <p>
+    	图形操作： RDP/VNC/X11/pcAnywhere/DameWare等
+    </p>
+    <p>
+    	其他协议：FTP/SFTP/Http/Https/SQLPLUS等
+    </p>
+    <h4>报表管理</h4>
+    <p>
+    	平台具有丰富的报表统计功能，可以进行默认报表和自定义报表来进行运维数据的报表统计。
+    </p>
+    <p>
+    	平台提供多种报表格式，包括Word、Excel等。
+    </p>
+    <p>
+    	平台提供折线、饼状、柱状等多种图表统计运维数据，方便后期的运维分析和管理。
+    </p>
+    <h4>机制完善用户管理权限</h4>
+    <p>
+    	平台对用户的管理权限严格分明，各司其职，分为系统管理员、审计管理员、运维管理员、口令管理员四种管理员角色，平台也支持管理员角色的自定义创建，对管理权限进行细粒度设置，保障了平台的用户安全管理，以满足审计需求
+    </p>
+    <p>
+    	平台集用户管理、身份认证、资源授权、访问控制、操作审计为一体，有效地实现了事前预防、事中控制和事后审计。
+    </p>
+    <h4>高效的处理能力</h4>
+    <p>
+    	审计平台能够对常见的SSH/Telnet/FTP/SFTP/HTTP/HTTPS /Windows Terminal/X11、VNC协议进行完整的透明转发，针对如RDP/VNC/X11等图形化协议的处理能力要比同类产品处理能力强。
+    </p>
+    <h4>可扩展性与兼容性</h4>
+    <p>
+    	平台采用模块化设计，单模块故障不影响其他模块使用，从而提高了平台的健壮性、稳定性
+    </p>
+    <p>
+    	运维人员登陆可支持Portal统一登录，并兼容终端C/S客户端连接设备；
+    </p>
+    <p>
+    	审计平台的认证方式可以与第三方的认证设备进行定制兼容
+    </p>
+    <p>
+    	具有强大研发实力，不但能为客户提供长期的产品更新，还能按照客户的实际需求进行定制开发。
+    </p>
+    <h4>灵活的部署方式</h4>
+    <p>
+    	堡垒机提供了功能完善、操作灵活、使用方便、界面友好、符合习惯的审计管理功能；
+    </p>
+    <p>
+    	B/S方式实现了对后台的各项管理配置
+    </p>
+    <p>
+    	平台简单易部署，通过配置导航，可在短时间内完成配置要求，实现上线要求。
+    </p>
+    <h4>完善的系统安全设计</h4>
+    <p>
+    	基于HTTPS/SSL的自身安全管理与审计；
+    </p>
+    <p>
+    	严格的安全访问控制和管理员身份认证支持强认证；
+    </p>
+    <p>
+    	审计信息加密存储；
+    </p>
+    <p>
+    	完善的审计信息备份机制；
+    </p>
+    <p>
+    	完整全面的自审计功能
+    </p>
+</div>
+<div class="side_qq">
+	<a class="img_qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=981664509&site=qq&menu=yes">
+		<img src="../../img/qq8.png" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+	</a>
+    <strong>在线咨询</strong>
+</div> 
+<div class="footer">
+	<div class="footer_top_one">
+    	<div class="footer_top_two clear">
+        	<ul class="footer_top_three clear">
+            	<li>
+                	<dl>
+                    	<dt>行业解决方案</dt>
+                        <dd><a href="#">制造行业</a></dd>
+                        <dd><a href="#">零售行业</a></dd>
+                        <dd><a href="#">服装行业</a></dd>
+                        <dd><a href="#">外贸行业</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>产品中心</dt>
+                        <dd><a href="#">ERP系列</a></dd>
+                        <dd><a href="#">其他软件产品</a></dd>
+                        <dd><a href="#">定制开发</a></dd>
+                        <dd><a href="#">代理软硬件产品</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>客户案例</dt>
+                        <dd><a href="#">浙江尤奈特电机有限公司</a></dd>
+                        <dd><a href="#">申银万国期货有限公司</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>关于我们</dt>
+                        <dd><a href="#">公司简介</a></dd>
+                        <dd><a href="#">发展历程</a></dd>
+                        <dd><a href="#">管理团队</a></dd>
+                        <dd><a href="#">社会责任</a></dd>
+                        <dd><a href="#">新闻媒体</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="footer_top_four">
+            	<dl>
+                    <dt>关注我们</dt>
+                    <dd>
+                    	<a href="#"><img src="../../img/contact1.gif" alt="" /></a>
+                        <a href="#"><img src="../../img/contact2.gif" alt="" /></a>
+                    </dd>
+                    <dd>
+                    	<img src="../../img/contact3.png" alt="" class="contact_pic" />
+                        <span>官方微信</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom clear">
+    	<div class="footer_left">
+        	<span>&copy;&nbsp;2017上海德咸软件有限公司&nbsp;版权所有&nbsp;
+            	<a href="#" target="_blank">沪ICP备17003635号</a>
+            </span>
+        </div>
+        <ul class="footer_right">
+        	<li>
+            	<a href="#" target="_blank">法律声明</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">隐私保护</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">联系我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

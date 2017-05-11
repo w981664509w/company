@@ -1,0 +1,597 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>上海德咸软件有限公司</title>
+<link rel="shortcut icon" href="../../img/dexian.ico" />
+<link rel="stylesheet" href="../../css/publicTab.css" />
+<link rel="stylesheet" href="../acss/stylek.css" />
+<script>
+window.onload=function(){
+	//导航部分
+	var oDivTop=document.getElementById('top_nav');
+	var oUlTop=oDivTop.getElementsByTagName('ul')[0];
+	var aLiTop=oUlTop.getElementsByTagName('li');
+	
+	var aDivTop=oDivTop.getElementsByClassName('hide_one');
+	
+	for(var i=1;i<aLiTop.length;i++){
+		aLiTop[i].index=i-1;
+		aLiTop[i].onmouseover=function(){
+			aDivTop[this.index].style.display='block';	
+		};
+		aLiTop[i].onmouseout=function(){
+			aDivTop[this.index].style.display='none';	
+		};	
+	}
+	
+	for(var i=0;i<aDivTop.length;i++){
+		aDivTop[i].onmouseover=function(){
+			this.style.display='block';	
+		};
+		aDivTop[i].onmouseout=function(){
+			this.style.display='none';	
+		};	
+	}
+	
+	//第二部分图片变换
+	var box = document.getElementById("section_three");
+	var ul = box.getElementsByTagName('ul')[0];
+	var lis = ul.getElementsByTagName('li');
+	 
+	for (var i = 0; i < lis.length; i++) {
+	  lis[i].style.backgroundImage = 'url(img/'+(i+1)+'.jpg)';
+	 
+	  lis[i].onmouseover = function () {
+	 
+		for (var j = 0; j < lis.length; j++) {
+		  animate(lis[j], {"width": 100});
+		}
+	 
+		animate(this, {"width": 800});
+	  };
+	}
+	 
+	box.onmouseout = function () {
+	  for (var i = 0; i < lis.length; i++) {
+		animate(lis[i], {"width": 240});
+	  }
+	};
+	 
+	
+	function animate(obj, json) {
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function () {
+		var flag = true;
+		for (var k in json) {
+		  var leader = parseInt(getStyle(obj, k)) || 0;
+		  var target = json[k];
+		  var step = (target - leader) / 10;
+		  step = step > 0 ? Math.ceil(step) : Math.floor(step);
+		  leader = leader + step;
+		  obj.style[k] = leader + "px";
+		 
+		  console.log("代码还在运行");
+		  if (leader != target) {
+	 
+			flag = false;
+	 
+		  }
+		}
+	 
+		if (flag) {
+		  clearInterval(obj.timer);
+		}
+	  }, 15);
+	}
+	function getStyle(obj, attr) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(obj, null)[attr];
+  } else {
+    return obj.currentStyle[attr];
+  }
+} 
+	 
+};
+</script>
+</head>
+
+<body>
+<div id="top_nav" class="top_nav clear">
+	<a class="logo" href="#">
+    	<img src="../../img/logo3.gif" alt="logo" />
+        <h3>上海德咸软件有限公司</h3>
+    </a>
+	<ul class="top_nav_list">
+    	<li>
+        	<a href="../../indexb.html">首页</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../solution/plan.html">行业解决方案</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../production/product.html">产品中心</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="#">客户案例</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../service/help.html">服务支持</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../relation/contact.html">联系我们</a>
+            <span></span>
+        </li>
+    </ul>
+    <div class="script">
+    	<a href="#"></a>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul3">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>制造行业</dt>
+                    <dd><a href="ptext1.html">生产计划</a></dd>
+                    <dd><a href="ptext2.html">物料计划</a></dd>
+                    <dd><a href="ptext3.html">物料分发</a></dd>
+                    <dd><a href="ptext4.html">半成品入库</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>零售行业</dt>
+                    <dd><a href="ptext5.html">POS收银</a></dd>
+                    <dd><a href="ptext6.html">库存管理</a></dd>
+                    <dd><a href="ptext7.html">积分活动</a></dd>
+                    <dd><a href="ptext8.html">APP/微信</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>服装行业</dt>
+                    <dd><a href="#">订单输入</a></dd>
+                    <dd><a href="#">颜色尺码管理</a></dd>
+                    <dd><a href="#">布料计划</a></dd>
+                    <dd><a href="#">款式出样</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list hide_ul1_right">
+                    <dt>外贸行业</dt>
+                    <dd><a href="#">采购订单</a></dd>
+                    <dd><a href="#">销售订单</a></dd>
+                    <dd><a href="#">出入库记录</a></dd>
+                    <dd><a href="#">销售报表</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul2">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>ERP系列</dt>
+                    <dd><a href="#">进销存系统</a></dd>
+                    <dd><a href="#">采购系统</a></dd>
+                    <dd><a href="#">CRM系统</a></dd>
+                    <dd><a href="#">仓库管理系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>其他软件产品</dt>
+                    <dd><a href="#">商机管理系统</a></dd>
+                    <dd><a href="#">二维码</a></dd>
+                    <dd><a href="#">数据实时屏显系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>定制开发</dt>
+                    <dd><a href="#">JAVA开发</a></dd>
+                    <dd><a href="#">C/C++开发</a></dd>
+                    <dd><a href="#">APP开发/微信开发</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_right hide_ul1_list">
+                    <dt>代理软硬件产品</dt>
+                    <dd><a href="../../production/user/user1.html">帕拉迪堡垒机</a></dd>
+                    <dd><a href="../../production/user/user3.html">深信服上网行为管理</a></dd>
+                    <dd><a href="../../production/user/user2.html">亿塞通数据加密防泄漏软件</a></dd>
+                    <dd><a href="#">华为桌面云系统</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul4">
+            <li>
+            	<div class="hide_ul4_pic1">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgjICAvQUoqpnrpwEw4wE4TA.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>浙江尤奈特电机有限公司</h3>
+                    </div>
+                </div>
+            </li>
+            <li>
+            	<div class="hide_ul4_pic1 hide_ul4_pic2">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgqIGAvQUopsWvxQUw0QE4Pg.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>申银万国期货有限公司</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+    	<ul class="hide_ul1 hide_ul5">
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>德咸公司吸收全球客户的经验，结合国内外先进的管理理念和管理软件的实施方法，推出符合中国国情的标准软件实施方法“Xway实施方法论”。我们愿意运用我们在企业管理及IT技术方面的知识，帮助客户迈向一个更高的台阶！</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <div class="hide_service">
+        	<ul class="clear">
+            	<li>
+                	<img src="../../img/n2.jpg" alt="" />
+                </li>
+                <li>
+                	<p>
+                    	地址：乳山路206号申富大厦501室<br/>
+                        邮政编码:200120
+                    </p>
+                	<p>
+                    	公司总电：021-61557545<br/>
+                        电子邮箱:info@magnifiit.com
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="tab product_piv" ></div>
+<div class="main1">
+	<h3 class="main1_h3">一句话告诉你APP的用途</h3>
+    <p class="main1_p1">发布时间：2016-11-01  来源：互联网</p>
+    <div class="main1_p4">
+    	<img src="../aimage/p24.jpg" alt="APP" />
+    </div>
+    <p class="main1_p2">
+    	APP用途
+    </p>
+    <p class="main1_p2">
+    	随着智能手机和iPad等移动终端设备的普及，人们逐渐**惯了使用APP客户端上网的方式，而目前国内各大电商，均拥有了自己的APP客户端，这标志着，APP客户端的商业使用，已经开始初露锋芒。
+
+APP已经不仅仅只是移动设备上的一个客户端那么简单，如今，在很多设备上已经可以下载厂商官方的APP软件对不同的产品进行无线控制。
+
+例如，音频厂商中日本天龙与马兰士已经推出了Android与iOS的官方APP，可以对各自的网络播放机或功放等产品进行无线播放或控制。
+
+不仅如此，随着移动互联网的兴起，越来越多的互联网企业、电商平台把APP作为销售的主战场之一。数据表明，APP既给手机电商带来的流量远远超过了传统互联网（PC端）的流量，通过APP进行盈利也是各大电商平台的发展方向。事实表明，各大电商平台向移动APP的倾斜也是十分明显的，原因不仅仅是每天增加的流量，更重要的是由于手机移动终端的便捷，为企业积累了更多的用户，更有一些用户体验不错的APP使得用户的忠诚度、活跃度都得到了很大程度的提升，从而为企业的创收和未来的发展起到了关键性的作用。
+    </p>
+    <p class="main1_p2">
+    	APP市场
+    </p>
+    <p class="main1_p2">
+    	报告显示，2014年中国移动购物市场交易规模为9297.1亿元，年增长率达239.3%，远高于中国网络购物整体增速(2014年中国网络购物市场交易规模为28145.1亿元，较去年同期增长49.8%)。艾瑞预测未来几年中国移动购物市场仍将继续保持较快增长，2018年移动购物市场交易规模将超过4万亿元。移动购物占比：2014年中国移动购物交易额在中国网络购物整体市场中占比33.0%，2016年将超PC端，每一个移动电商平台都必然会以移动电商app为载体。
+    </p>
+    <p class="main1_p2">
+    	在2014年移动购物市场的企业份额中，APP排名以阿里无线、手机京东、手机唯品会占据前三，份额分别为86.2%、4.2%、2.1%。阿里无线一家独大，占比86.2%，其无线端通过“淘宝+天猫”提供平台服务，在由交易入口向无边界生活圈转型。
+    </p>
+    <p class="main1_p2">
+    	APP开发
+    </p>
+    <p class="main1_p2">
+    	APP创新性开发，始终是用户的关注焦点，而商用APP客户端的开发，更得到诸多网络大亨们的一致关注与赞许。与趋于成熟的美国市场相对比，我国开发市场正处于高速生长阶段。
+    </p>
+    <p class="main1_p2">
+    	开发语言
+    </p>
+    <p class="main1_p2">
+    	1、iOS平台开发语言为Objective-C；
+
+2、安卓 Android开发语言为java；
+
+3、微软Windows phone7开发语言是C#；
+
+4、塞班symbian系统版本开发语言是C++。
+    </p>
+    <p class="main1_p2">
+       7 APP营销
+    </p>
+    <div class="main1_p4">
+    	<img src="../aimage/p26.jpg" alt="APP" />
+    </div>
+    <p class="main1_p2">
+    	App营销App营销是App能否获得广大用户下载和注册使用，并最终成功的重要因素。App营销的渠道包括应用商店、广告联盟、手机应用媒体、手机应用论坛等。
+
+随着硬件基础服务的不断优化，智能终端的突破性普及为移动互联网奠定了庞大的用户基础，各种精彩纷呈的APP应用为移动互联网发展提供了动力源泉。据调研机构的数据分析，手机用户花在游戏、社交、等新型应用上的时间，占使用总时间的47%，平均每一个用户在手机上已经超过20款的应用程序。
+    </p>
+    <p class="main1_p2">
+    	以ios app为例：
+    </p>
+    <p class="main1_p2">
+    	最有效的营销手段：刷榜、限免、aso优化、换量，特定类型产品可以利用好微博营销。
+    </p>
+    <p class="main1_p2">
+    	用户除了付费之外，另一个价值就是传播，大部分产品（除了社交类产品）属于用户只会因为产品的质量而去传播，本身要求比较高，最简单实用的办法就是设置门槛要求用户分享。
+    </p>
+    <p class="main1_p2">
+    	应用运营前准备：
+    </p>
+    <p class="main1_p2">
+    	（1）ASO（应用商店优化）准备
+    </p>
+    <p class="main1_p2">
+    	应用权重可能的影响因素：应用使用状况（打开次数、停留时间、留存率）新应用，或者刚更新会有特殊权重，下载状况，评论数，评星。
+
+影响搜索结果的要素：标题（255字节），关键词（100字节），收费插件，开发商，汉字算一个字节，可以把竞争对手的品牌词都列进去，描述内容对搜索结果没什么影响。
+    </p>
+    <p class="main1_p2">
+    	（2）LOGO优化
+    </p>
+    <p class="main1_p2">
+    	logo是对点击率影响最高的因素，直接影响产品能走到的高度，工具类以纯色为主，主色2-3种，如果有生活中的物品做参照再好不过了，立体和质感很重要，游戏类以人物头像进行突出。
+    </p>
+    <p class="main1_p2">
+    	（3）AppStore详细页优化
+    </p>
+    <p class="main1_p2">
+    	描述，显示五行，前三行最关键，对用户转化有一定影响，和大部分渠道合作会要求在描述前面加上他们的信息，虽然可惜，但是不能吝啬。
+
+截图，突出核心功能点并加上一些描述，不要单纯只是画面截图。
+
+评论，通常来说评星数会是评论数的3-4倍（除非应用内有引导用户区appstore评论），虽然评论务必得刷，但是不要刷太过了。
+    </p>
+    <p class="main1_p2">
+    	（4）开辟应用推荐
+    </p>
+    <p class="main1_p2">
+    	无论在什么位置，但一定要有，这是资源交换的筹码。
+    </p>
+    <p class="main1_p2">
+    	（5）设置收费
+    </p>
+    <p class="main1_p2">
+    	刚开始的收费让运营的余地大很多。
+
+正式上线之后!
+    </p>
+    <p class="main1_p2">
+    	（6）刷榜
+    </p>
+    <p class="main1_p2">
+    	在上线之后刷一点收费版，造品牌，让业内和用户都看到你，在之后的合作会容易很多，据说解决网先刷后付，不过价钱略贵，这个我没有操作过。
+    </p>
+    <p class="main1_p2">
+    	（7）发码
+    </p>
+    <p class="main1_p2">
+    	同样是造势的，投稿并提供码给测评站发文章，和佐佐卡，搞趣之类的做发码活动，不会有太多直接下载，但是对后面铺垫很重要。
+    </p>
+    <p class="main1_p2">
+    	（8）冰点降价
+    </p>
+    <p class="main1_p2">
+    	和发码同一类型，网易有做冰点。
+    </p>
+    <p class="main1_p2">
+    	（9）限免
+    </p>
+    <p class="main1_p2">
+    	真正的战斗开始了，限免无疑是真正的第一波带量的渠道，所以选择好合作方比较关键,的限免第一阵营几家：搞趣，iapps，苹果园，软猎，网易。
+
+宣传力最强的是搞趣，尤其是他们的特约，如果产品好的话，冲榜肯定没问题，但是他们要求比较高，所以和他们的商务搞好关系很重要，其他的几家联合限免效果也都还不错。
+    </p>
+    <p class="main1_p2">
+    	（10）资源交换
+    </p>
+    <p class="main1_p2">
+    	主动给渠道商一些资源位，能帮助你在和他们的沟通中获得更多主动，刚开始你能提供的量肯定是很少的，所以就谈按天算吧，换量比较麻烦，一般也不是特别乐意做。
+    </p>
+    <p class="main1_p2">
+    	（11）广告投放
+    </p>
+    <p class="main1_p2">
+    	做过一轮限免后资源交换后，有钱的可以开始做广告投放，好的渠道不多，有米，多盟，admob算是比较优质的了，尽量按cpa来做，能谈到3.5块就很不错了。
+    </p>
+    <p class="main1_p2">
+    	APP前景
+    </p>
+    <p class="main1_p2">
+    	“APP取代企业WAP网站成为手机主流移动应用”
+    </p>
+    <p class="main1_p2">
+    	随着企业WAP在全球掀起的移动互联网浪潮方兴未艾时，另一场移动互联网的革命之火却挑起了更大的关注度。这场“革命”是以智能手机及智能手机中的APP应用为代表的，相较于WAP站点的不温不火，手机APP拥有强劲的发展势头：以APPLE的App Store为例，苹果公司于2008年推出AppStore，最初其中只有不到500个APP应用，但在随后的三年时间里，这个数字已经增长到500000，累计下载次数更是高达15,000,000,000次，而且这个数字还在以几何形式增长着。
+    </p>
+     <p class="main1_p2">
+    	2011年苹果在全球引起的浪潮更进一步让越来越多的企业认识到APP应用，企业移动营销对于企业的作用也进一步受到关注，越来越多的企业正在以各种形式开展手机APP营销。企业WAP受到APP应用的极大挑战。技术的变革正在带来应用模式、商业模式等多方面的变革。
+    </p>
+     <p class="main1_p2">
+    	应该说，APP营销更像是WAP营销发展到一定阶段的产物：首先，这两者营销都来源于企业对移动营销的重视；其次，通过数据比对发现，率先进入APP的企业，正是当初在企业WAP兴起时便选择进入WAP的企业，因此不难得出结论，企业APP营销是WAP营销的新时代。
+    </p>
+     <p class="main1_p2">
+    	“2012中国百强APP互联网巨头分食30%”
+    </p>
+     <p class="main1_p2">
+    	据了解，苹果公司每年都会在12月发布App Store年度精选榜单，该榜单是由苹果官方根据APP下载量、用户好评度及专业人士推荐而产生的综合榜单，成为苹果用户选择应用的重要参考标准。苹果把这份年度精选称为“重点推出2012年塑造App和游戏发展趋势的领军产品”。
+
+从iPhone平台的TOP100榜单来看，游戏类应用17个，社交类应用14个，娱乐类13个，工具类21个，新闻类仅有搜狐新闻客户端1个。其中，腾讯、百度、阿里、搜狐这四家公司旗下APP应用数量占据了榜单的30%份额。
+    </p>
+    <p class="main1_p2">
+    	APP应用
+    </p>
+    <p class="main1_p2">
+    	基本简介
+    </p>
+    <p class="main1_p2">
+    	企业APP是结合了通信和互联网的优势，加之云计算所拥有的强大信息资源，借助广大的终端传递服务，潜在的拥有巨大商机。
+    </p>
+    <p class="main1_p2">
+    	APP技术原本是对软件进行加速运算或进行大型科学 运算的技术，基于PaaS开发平台开发出的APP，直接部署在云环境上，为企业进行集成，形成一种租用云服务的模式。同时，APP技术还可以应用于移动互联网中。在移动时代的大背景下，个人应用率先走进云时代，基于云平台的企业APP在移动互联网领域迎来了发展良机。
+
+APP初期以媒体、游戏、新闻、书籍的移动应用为主，主要运用于商务。他能直接把成功的网站内容和功能移植到APP，如淘宝。作为补充角色，他是国外一些大公司普遍采用的模式。如美国的报纸杂志在网站收不到钱，缺少使用传统阅读**惯的体验，而在智能手机或iPad的随身方便性及直观触控操作让使用者愿意付费。
+    </p>
+    <p class="main1_p2">
+    	发展现状
+    </p>
+    <p class="main1_p2">
+    	风起云涌的高科技时代，智能终端的普及不仅推动了移动互联网的发展，也带来了移动APP应用的爆炸式增长。根据IDC的预测，以2011年全球范围内的382亿下载量计算，到2015年APP下载量会上升到1827亿。在海量的APP应用中，企业APP作为一个新式的营销手段逐渐展示在我们眼前，而企业自建APP商店的构想理念也不断被提起。
+
+凭借便携、触屏、高清的丰富体验，以iphone和android为代表的手机移动设备正悄然改变着企业的商务运行。这使得原本定义为消费设备的产品逐渐也应用于商务领域，从而引发了企业级应用厂商把研发重点转移至移动应用平台。
+    </p>
+    <p class="main1_p2">
+    	在美国，美国目前有超过110万的智能手机应用程序，半数百人以上的企业都已有自己的移动应用程序，消费者开始期望每个企业都提供App，世界五百强企业90%以上都做了自己品牌的APP，传统企业运用APP与9亿用户互动，会是移动互联网行业一个巨大的市场。
+
+调查显示，智能手机正在快速改变着中国城市人群的生活方式。人们随时随地都在使用智能手机，其中家中（66%）、旅途中(59%)、乘坐交通工具中（52%）、餐厅（38%）及商场（30%）是使用最频繁的地方。调查还发现，用户使用智能手机上网的时间已经远远超过了打电话的时间，英国一家调研机构指出，智能手机用户使用最多的是浏览网页，调查对象平均一天用手机上网24.49分钟；其次为登录社交网站，平均一天用时17.29分。
+
+全球各大品牌商已经意识到应用商店可以为其提供推广品牌、接触消费者，甚至销售内容的渠道。媒体、商业服务以及汽车制造业在这一方面的认识更加深刻，非常积极地把应用商店作为他们发布内容的渠道。从2008年苹果App Store、GooglePlay Store上线以来，大众、奔驰、丰田、宝马、本田、保时捷等国际汽车品牌，甲骨文、惠普、思科、英特尔、通用电气、西门子、施乐、三星、飞利浦、戴尔等商业服务公司，可口可乐、百事可乐、GUCCI、耐克、阿迪达斯、麦当劳、宜家等消费品公司都相继在主流平台应用商店推出了自己的品牌App。
+
+2013年3月，根据移动广告网络inMobi调查显示，中国四分之三的iOS和安卓系统用户该月使用手机App个数达6个以上，其中27%的用户使用App数量多于21个。eMarketer估计2013年中国智能手机用户会高达3.219亿，占手机用户数三分之一。显然，相比国外咱中国用户更为乐意在应用内花钱。
+    </p>
+    <p class="main1_p2">
+    	APP移动APP如此受宠的原因不仅仅在于其随时随地实用的便捷性，更在于其丰富强大的应用软件能为广大用户带来最大的实用性及娱乐性，那么在选择这些软件的过程中，哪些因素是用户最为关注的呢？
+
+实用性、安全性是APP开发商店最重要因素。
+    </p>
+    <p class="main1_p2">
+    	对于个人用户来说，APP应用商店的实用性最为重要，多数用户希望APP应用能使自己的"工作/学**/生活变得更便捷"；同时，"安全，不存在 病毒、吸费等问题"也是用户重点关注的因素。根据调查结果计算，实用、安全两项因素的重要度得分分别达81.81分和79.12分。此外，软件的丰富性、 运行速度的重要度得分均在75分以上。
+
+社交通讯、系统工具、阅读资讯、游戏娱乐和导航地图是较常使用的APP功能。
+    </p>
+    <p class="main1_p2">
+    	手机APP开发强大丰富的应用功能为其广大用户提供了极大的方便和益处。那么在众多的应用程序中有哪些是最受广大用户青睐的呢？通过调查分析，QQ、微信、微博等社交通讯工具以其沟通的便捷、及时、较少受时间地点限制等特性，受到移动APP用户的大力追捧，69.7%的用户经常使用该功能； 系统工具（如浏览器、安全软件）、阅读资讯可满足用户对安全和资讯的需求，分别有57.6%和57.1%的用户经常使用；游戏娱乐、导航地图以其娱乐性和实用性也受到多数用户的青睐。
+
+手机的特性使得社交网络更容易寄生。电话、短信是维系人际关系更直接和普遍的手段。GPS、相机这样更多传感器的加入使得沟通的方式更加便捷与多样。3G网络重新定义了移动互联网的沟通方式。当网络不再成为瓶颈，iPhoneIOS、Android等新一代的移动互联网让开发移动APP更加便利， 新的社交模式、新的通讯方式得以借此诞生。
+    </p>
+    <p class="main1_p2">
+    	APP：移动互联网时代的玫瑰
+    </p>
+    <p class="main1_p2">
+    	从大哥大到BB机，再到手机和平板，我们接收的信息越来越多，手上的电子应用却是越来越薄，这其中除了科技的进步之外，还有就是人们的实际需求因素，网络基础设施正在慢慢的抽象化，APP的出现就是最好的说明。
+
+我们常常能够看到这样的一种场景，乘地铁、坐公交、甚至上厕所的时候都要带上手机或是ipad,看小说和浏览网页等；聚餐时，菜品一上来我们第一件做的不是动筷子，而是掏手机拍照，然后快速上传到自己的各类社交空间，等待着圈内人的点评；我们购物时也可以直接用手机下订单并支付，“移动”着收发邮件等。这些多是得益于APP的出现和应用。
+    </p>
+    <p class="main1_p2">
+    	移动互联网的发展衍生出了很多方便实用的产品，APP绝对算得上其中一个大件，移动互联网和APP是一种起承转合的状态。2013年6月底，中国网民数达到5.9亿，其中手机网民达4.64亿，占网民总数的78.5%。2013年上半年，中国智能手机出货量达到2.14亿部，同比增长了120%。中国智能手机市场占到全球的三分之一。据2013年中国互联网大会相关报道，近两年爆发式增长的移动互联网成为热词。
+
+移动互联网也越来越成为众多商家征战的场所，移动互联网的营销正在变得越来越重要。正如世界营销大师克里斯特·斯通所言：“未来的营销，不需要太多的渠道，只要让你的产品进入消费者的手机，就是最好的营销。” 进入手机，意味着更精准、更快速的营销。
+    </p>
+    <p class="main1_p2">
+    	APP的出现就变得顺其自然了。2013年3月份，百度发布移动应用搜索行业报告，数据显示，国内APP资源数量已经接近50万。
+
+APP营销即应用程序营销，是指通过定制手机软件、SNS及社区等平台上运行的应用程序来开展的营销活动的总称，当前的APP营销多指第三方智能移动平台的应用程序营销。APP营销是WAP营销发展到一定阶段的产物，二者都来源于企业对移动营销的重视，不难看出，APP营销正是在WAP营销基础上开创了移动营销的新时代。APP的流行让各大公司和机构，甚至一些资金实力并不太强大的小微企业，纷纷开始建立自己的安卓和IOS的客户端，开展APP营销。
+    </p>
+    <p class="explain">*本文来源于互联网，本着传播知识、有益学习和研究的目的进行的转载，为网友免费提供，并以尽力标明作者与出处，如有著作权人或出版方提出异议，本站将立即删除。如果您对文章转载有任何疑问请告之我们，以便我们及时纠正。联系方式：021-61557545。</p>
+</div>
+<div class="side_qq">
+	<a class="img_qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=981664509&site=qq&menu=yes">
+		<img src="../../img/qq8.png" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+	</a>
+    <strong>在线咨询</strong>
+</div> 
+<div class="footer">
+	<div class="footer_top_one">
+    	<div class="footer_top_two clear">
+        	<ul class="footer_top_three clear">
+            	<li>
+                	<dl>
+                    	<dt>行业解决方案</dt>
+                        <dd><a href="#">制造行业</a></dd>
+                        <dd><a href="#">零售行业</a></dd>
+                        <dd><a href="#">服装行业</a></dd>
+                        <dd><a href="#">外贸行业</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>产品中心</dt>
+                        <dd><a href="#">ERP系列</a></dd>
+                        <dd><a href="#">其他软件产品</a></dd>
+                        <dd><a href="#">定制开发</a></dd>
+                        <dd><a href="#">代理软硬件产品</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>客户案例</dt>
+                        <dd><a href="#">浙江尤奈特电机有限公司</a></dd>
+                        <dd><a href="#">申银万国期货有限公司</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>关于我们</dt>
+                        <dd><a href="#">公司简介</a></dd>
+                        <dd><a href="#">发展历程</a></dd>
+                        <dd><a href="#">管理团队</a></dd>
+                        <dd><a href="#">社会责任</a></dd>
+                        <dd><a href="#">新闻媒体</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="footer_top_four">
+            	<dl>
+                    <dt>关注我们</dt>
+                    <dd>
+                    	<a href="#"><img src="../../img/contact1.gif" alt="" /></a>
+                        <a href="#"><img src="../../img/contact2.gif" alt="" /></a>
+                    </dd>
+                    <dd>
+                    	<img src="../../img/contact3.png" alt="" class="contact_pic" />
+                        <span>官方微信</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom clear">
+    	<div class="footer_left">
+        	<span>&copy;&nbsp;2017上海德咸软件有限公司&nbsp;版权所有&nbsp;
+            	<a href="#" target="_blank">沪ICP备17003635号</a>
+            </span>
+        </div>
+        <ul class="footer_right">
+        	<li>
+            	<a href="#" target="_blank">法律声明</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">隐私保护</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">联系我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script src="../ajs/amenu.js"></script>
+
+
+
+

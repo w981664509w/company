@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*tab*/
+.product_pic{
+	background:url(../pimage/p2.jpg) no-repeat;	
+	background-size:100% 100%;
+	-webkit-background-size:100% 100%;
+	-o-background-size:100% 100%;
+	-moz-background-size:100% 100%;	
+}
+/*end tab*/
+
+/*main2*/
+.main2{
+	width:972px;
+	padding-top:20px;
+	margin:0 auto;
+	padding-bottom:70px;	
+}
+
+.main2 h3{
+	font-size:28px;
+	font-weight:normal;	
+	margin-top:36px;	
+}
+
+.main2 .main2_h3{
+	text-align:center;	
+}
+
+.main2 p{
+	font-size:14px;
+	line-height:24px;
+	text-indent:2em;
+	color:#666;	
+	margin-top:7px;	
+}
+
+.main2 h4{
+	margin-top:10px;
+	font-size:18px;
+	line-height:30px;
+	color:#333;	
+	font-weight:normal;	
+}
+
+.main2 h5{
+	font-size:14px;
+	line-height:38px;
+	color:#000;
+	font-weight:normal;		
+}
+
+.main2_p4{
+	text-align:center;
+	margin-top:20px;	
+}
+
+.main2_p1{
+	height:30px;
+	border-bottom:1px dotted #aaa;	
+}
+
+.main3 p{
+	font-size:15px;
+	line-height:26px;
+	text-indent:0;
+	color:#989898;	
+	margin-top:0;	
+}
+
+.main3 .main2_p2{
+	text-indent:2em;	
+}
+
+.main3 .main2_p5{
+	margin-top:28px;
+	text-indent:2em;	
+}
+
+.main3 a{
+	text-decoration:underline;
+	color:#989898;
+}
+/*main2*/
+
+/*table*/
+table{
+	margin:26px auto;
+	color:#989898;	
+}
+
+th,td{
+	border:1px solid #000;
+	font-size:12px;	
+	font-weight:200;
+	padding:0 11px 1px;
+	line-height:22px;
+}
+
+
+
+table caption{
+	font-size:20px;
+	margin-bottom:50px;	
+}
+
+.main4 p{
+	font-size:12px;
+	line-height:22px;
+	color:#989898;	
+	text-indent:0;
+	padding-bottom:1px;
+	
+}
+
+.center{
+	text-align:center;	
+}
+/*/end table*/

@@ -1,0 +1,458 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>上海德咸软件有限公司</title>
+<link rel="shortcut icon" href="../../img/dexian.ico" />
+<link rel="stylesheet" href="../../css/publicTab.css" />
+<link rel="stylesheet" href="../pcss/stylem.css" />
+<script>
+window.onload=function(){
+	//导航部分
+	var oDivTop=document.getElementById('top_nav');
+	var oUlTop=oDivTop.getElementsByTagName('ul')[0];
+	var aLiTop=oUlTop.getElementsByTagName('li');
+	
+	var aDivTop=oDivTop.getElementsByClassName('hide_one');
+	
+	for(var i=1;i<aLiTop.length;i++){
+		aLiTop[i].index=i-1;
+		aLiTop[i].onmouseover=function(){
+			aDivTop[this.index].style.display='block';	
+		};
+		aLiTop[i].onmouseout=function(){
+			aDivTop[this.index].style.display='none';	
+		};	
+	}
+	
+	for(var i=0;i<aDivTop.length;i++){
+		aDivTop[i].onmouseover=function(){
+			this.style.display='block';	
+		};
+		aDivTop[i].onmouseout=function(){
+			this.style.display='none';	
+		};	
+	}
+	
+	//第二部分图片变换
+	var box = document.getElementById("section_three");
+	var ul = box.getElementsByTagName('ul')[0];
+	var lis = ul.getElementsByTagName('li');
+	 
+	for (var i = 0; i < lis.length; i++) {
+	  lis[i].style.backgroundImage = 'url(img/'+(i+1)+'.jpg)';
+	 
+	  lis[i].onmouseover = function () {
+	 
+		for (var j = 0; j < lis.length; j++) {
+		  animate(lis[j], {"width": 100});
+		}
+	 
+		animate(this, {"width": 800});
+	  };
+	}
+	 
+	box.onmouseout = function () {
+	  for (var i = 0; i < lis.length; i++) {
+		animate(lis[i], {"width": 240});
+	  }
+	};
+	 
+	
+	function animate(obj, json) {
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function () {
+		var flag = true;
+		for (var k in json) {
+		  var leader = parseInt(getStyle(obj, k)) || 0;
+		  var target = json[k];
+		  var step = (target - leader) / 10;
+		  step = step > 0 ? Math.ceil(step) : Math.floor(step);
+		  leader = leader + step;
+		  obj.style[k] = leader + "px";
+		 
+		  console.log("代码还在运行");
+		  if (leader != target) {
+	 
+			flag = false;
+	 
+		  }
+		}
+	 
+		if (flag) {
+		  clearInterval(obj.timer);
+		}
+	  }, 15);
+	}
+	function getStyle(obj, attr) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(obj, null)[attr];
+  } else {
+    return obj.currentStyle[attr];
+  }
+} 
+	 
+};
+</script>
+</head>
+
+<body>
+<div id="top_nav" class="top_nav clear">
+	<a class="logo" href="#">
+    	<img src="../../img/logo3.gif" alt="logo" />
+        <h3>上海德咸软件有限公司</h3>
+    </a>
+	<ul class="top_nav_list">
+    	<li>
+        	<a href="../../indexb.html">首页</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../solution/plan.html">行业解决方案</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../product.html">产品中心</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="#">客户案例</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../service/help.html">服务支持</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../relation/contact.html">联系我们</a>
+            <span></span>
+        </li>
+    </ul>
+    <div class="script">
+    	<a href="#"></a>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul3">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>制造行业</dt>
+                    <dd><a href="../../solution/plan_text/ptext1.html">生产计划</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext2.html">物料计划</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext3.html">物料分发</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext4.html">半成品入库</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>零售行业</dt>
+                    <dd><a href="../../solution/plan_text/ptext5.html">POS收银</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext6.html">库存管理</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext7.html">积分活动</a></dd>
+                    <dd><a href="../../solution/plan_text/ptext8.html">APP/微信</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>服装行业</dt>
+                    <dd><a href="#">订单输入</a></dd>
+                    <dd><a href="#">颜色尺码管理</a></dd>
+                    <dd><a href="#">布料计划</a></dd>
+                    <dd><a href="#">款式出样</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list hide_ul1_right">
+                    <dt>外贸行业</dt>
+                    <dd><a href="#">采购订单</a></dd>
+                    <dd><a href="#">销售订单</a></dd>
+                    <dd><a href="#">出入库记录</a></dd>
+                    <dd><a href="#">销售报表</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul2">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>ERP系列</dt>
+                    <dd><a href="#">进销存系统</a></dd>
+                    <dd><a href="#">采购系统</a></dd>
+                    <dd><a href="#">CRM系统</a></dd>
+                    <dd><a href="#">仓库管理系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>其他软件产品</dt>
+                    <dd><a href="#">商机管理系统</a></dd>
+                    <dd><a href="#">二维码</a></dd>
+                    <dd><a href="#">数据实时屏显系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>定制开发</dt>
+                    <dd><a href="#">JAVA开发</a></dd>
+                    <dd><a href="#">C/C++开发</a></dd>
+                    <dd><a href="#">APP开发/微信开发</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_right hide_ul1_list">
+                    <dt>代理软硬件产品</dt>
+                    <dd><a href="user1.html">帕拉迪堡垒机</a></dd>
+                    <dd><a href="user3.html">深信服上网行为管理</a></dd>
+                    <dd><a href="user2.html">亿塞通数据加密防泄漏软件</a></dd>
+                    <dd><a href="#">华为桌面云系统</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul4">
+            <li>
+            	<div class="hide_ul4_pic1">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgjICAvQUoqpnrpwEw4wE4TA.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>浙江尤奈特电机有限公司</h3>
+                    </div>
+                </div>
+            </li>
+            <li>
+            	<div class="hide_ul4_pic1 hide_ul4_pic2">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgqIGAvQUopsWvxQUw0QE4Pg.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>申银万国期货有限公司</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+    	<ul class="hide_ul1 hide_ul5">
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>德咸公司吸收全球客户的经验，结合国内外先进的管理理念和管理软件的实施方法，推出符合中国国情的标准软件实施方法“Xway实施方法论”。我们愿意运用我们在企业管理及IT技术方面的知识，帮助客户迈向一个更高的台阶！</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <div class="hide_service">
+        	<ul class="clear">
+            	<li>
+                	<img src="../../img/n2.jpg" alt="" />
+                </li>
+                <li>
+                	<p>
+                    	地址：乳山路206号申富大厦501室<br/>
+                        邮政编码:200120
+                    </p>
+                	<p>
+                    	公司总电：021-61557545<br/>
+                        电子邮箱:info@magnifiit.com
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="tab product_pic" ></div>
+<div class="main2 main3">
+	<h3 class="main2_h3">亿塞通数据加密防泄漏软件</h3>
+    <div class="main2_p1"></div>
+    <div class="main2_p4">
+    	<img src="../pimage/p9.jpg" alt="亿塞通数据加密防泄漏软件" />
+    </div>
+    <p class="main2_p2">
+    	信息防泄漏是以<a target="_blank" href="http://baike.baidu.com/view/8136.htm">加密技术</a>为核心，结合<a href="http://baike.baidu.com/view/297228.htm">安全审计</a>机制、严格管控机制掌握、控制内部文档操作，有效防止任何状态（使用、传输、存储）的内部资料和<a target="_blank" href="http://baike.baidu.com/subview/1498557/1498557.htm">信息资产</a>泄漏，目前基于此技术的防泄漏系统有：UniBDP、<a target="_blank" href="http://baike.baidu.com/subview/74692/74692.htm">DLP</a>等。 
+    </p>
+    <p>
+    	随着企业信息化的发展，信息系统越来越多的使用于日常工作中，成为不可或缺的工具和手段。通过企业信息化大大提高了企业生产效率，从 ERP 到SOA，成熟的企业已经越来越依赖于信息系统而运行发展并壮大；虚拟化、<a target="_blank" href="http://baike.baidu.com/view/1316082.htm">云计算</a>等技术的发展更是为许多跨地区、跨国家的企业节约了大笔的专线费用，并且提供了信息传送的实时性、可靠性、保密性的保证。
+    </p>
+    <p>
+    	电子商务、海外分公司、各地专卖店……企业正在利用信息化技术来打破地域之间的阻碍，同时还会产生大量如客户资料、<a target="_blank" href="http://baike.baidu.com/subview/1707626/1707626.htm">营销方案</a>、财务报表、研发数据等关乎企业核心竞争力的机密资料。然而，信息技术本身的双刃剑特性也在组织内网不断显现：强大的开放性和互通性催生了商业泄密、<a target="_blank" href="http://baike.baidu.com/subview/1698218/1698218.htm">网络间谍</a>等众多灰色名词，“<a target="_blank" href="http://baike.baidu.com/subview/2645311/2645311.htm">力拓案</a>”、“维基泄密”等事件让信息安全事件迅速升温，信息防泄漏成为企业越来越关注的焦点。
+    </p>
+    <p>
+    	中国的企业正在由中国制造向中国创造转变，企业内部如客户资料、营销方案、财务报表、研发数据等<a target="_blank" href="http://baike.baidu.com/subview/1498557/1498557.htm">信息资产</a>对于自身来说的重要性越来越大，这些知识产权甚至是核心竞争力所在，一旦外泄后果不堪设想。同时企业内部的IT应用不断增多，企业对于IT的依赖性加强，这就导致信息外泄的渠道也大大增多，安全风险无处不在。因此，信息防泄漏的管理越来越重要，不仅是IT人员关心的问题，而是企业领导者都必须认真对待的棘手问题。
+    </p>
+    <p>
+    	于是，信息防泄漏问题成为困扰信息化发展与否的重要问题，更多的机构把信息系统的安全问题列为整体战略发展的重要环节之一。
+系统化的、全方位立体化的信息防泄漏解决方案才能真正的保护企业的数据。
+    </p>
+    <p>
+    	所谓系统化，即要系统化地运用加密、管控、审计等多种手段，盛行的“加密风”让不少企业选择了加密产品，但其实单纯的加密是不够的，企业还需要审计技术来了解内部发生了什么，管控技术来防止泄密事件发生，只有把多种技术结合在一起，才能真正意义上的保护企业的<a target="_blank" href="http://baike.baidu.com/view/2308446.htm">数据安全</a>。
+全方位、立体化的信息防泄漏解决方案，指的是要全面考虑到企业信息可能泄漏出去的每一个方面，最大限度消除数据外泄风险；同时，还要针对企业多部门多层级的内部结构，合理划分员工的文档访问权限，建立一个立体化的分级保密体系。
+    </p>
+    <p>
+    	因为，在信息安全领域中，信息安全的整体防护强度取决于“马奇诺防线”中最为薄弱的一环。由于缺乏必要的技术管理手段，安全事件可能从各种地方发生。如果无法明确<a target="_blank" href="http://baike.baidu.com/view/160026.htm">安全漏洞</a>，很可能内部价值上千万的机密信息，只是因为一个U盘的不慎使用，或者是一个普通员工的无意识操作，就瞬间外泄出去。
+    </p>
+    <p>
+    	所以，全面的信息防泄漏体系是企业<a target="_blank" href="http://baike.baidu.com/view/5680498.htm">数据防泄漏</a>的考察重点。
+    </p>
+    <p class="main2_p5">
+    	移动存储介质防护是针对移动存储介质使用范围、使用方式及数据安全存储进行科学控制的安全管理系统。MediSec通过对介质的访问控制与注册授权，实现非注册介质接入内网计算机上不能使用，以及内网专用介质接入非内网计算机上不能使用。数据始终以密文形式存储在专用介质上，非授权用户不能解密，保证涉密介质丢失后不会造成泄密事故，同时用户用U 盘拷贝数据时可以实时备份到服务器上，便于日后追溯审计。详细的介质使用审计日志，确保介质可追踪。这里的介质涵盖：U 盘、移动硬盘、手机、数码相机、摄像机、ipod、MP3/MP4、PDA、各 CF/MD/SD/Flash Disk 等移动存储设备。
+    </p>
+    <p>
+    	亿塞通数据加密防泄漏软件：
+    </p>
+    <p>
+    	核心功能：
+    </p>
+    <p>
+    	产品特性：
+    </p>
+    <p>
+    	1.符合国家安全标准和要求
+    </p>
+    <p>
+    	完全按照 BMB17 对移动存储介质的管理技术要求进行设计开发。
+    </p>
+    <p>
+    	2.低成本
+    </p>
+    <p>
+    	原有普通介质均可转换成“内网专用介质”。
+    </p>
+    <p>
+    	自动数据保护，对用户透明，不增加用户的学习成本。
+    </p>
+    <p>
+		3.安全可靠
+    </p>
+    <p>
+    	&loz;多层次的安全访问控制方式，杜绝移动存储介质的滥用或非授权使用。
+    </p>
+    <p>
+    	&loz;通过多层认证防护技术，自动识别硬件信息、用户标识、存储设备与非存储设备、授权设备与非授权设备等信息。
+    </p>
+    <p>
+    	&loz;独有的介质外出审批授权控制功能，同类产品均无该功能。
+    </p>
+    <p>
+    	&loz;强大的使用跟踪与日志审计，全程跟踪存储器在整个生命周期的安全。
+    </p>
+    <p>
+    	&loz;U 盘拷贝的所有数据都可以备份到服务器上，便于查询审计。
+    </p>
+    <p>
+    	部署方案：
+    </p>
+    <p>
+    	通过本产品的部署实施，我们可以达到如下的效果：
+    </p>
+    <p>
+    	进不来：非涉密介质接入涉密计算机上不能使用。
+    </p>
+    <p>
+    	拿不走：涉密介质接入非涉密计算机上不能使用。
+    </p>
+    <p>
+    	读不懂：数据始终以密文形式存储在介质上，非授权用户不能解密，涉密介质丢失不会造成泄密事故。 
+    </p>
+    <p>
+    	改不了：数据在涉密介质上存储后，非法用户无法更改数据内容。
+    </p>
+    <p>
+    	走不脱：详细的涉密介质使用日志，泄密事件可追踪，犯罪分子无处可逃。
+    </p>
+</div>
+<div class="side_qq">
+	<a class="img_qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=981664509&site=qq&menu=yes">
+		<img src="../../img/qq8.png" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+	</a>
+    <strong>在线咨询</strong>
+</div> 
+<div class="footer">
+	<div class="footer_top_one">
+    	<div class="footer_top_two clear">
+        	<ul class="footer_top_three clear">
+            	<li>
+                	<dl>
+                    	<dt>行业解决方案</dt>
+                        <dd><a href="#">制造行业</a></dd>
+                        <dd><a href="#">零售行业</a></dd>
+                        <dd><a href="#">服装行业</a></dd>
+                        <dd><a href="#">外贸行业</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>产品中心</dt>
+                        <dd><a href="#">ERP系列</a></dd>
+                        <dd><a href="#">其他软件产品</a></dd>
+                        <dd><a href="#">定制开发</a></dd>
+                        <dd><a href="#">代理软硬件产品</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>客户案例</dt>
+                        <dd><a href="#">浙江尤奈特电机有限公司</a></dd>
+                        <dd><a href="#">申银万国期货有限公司</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>关于我们</dt>
+                        <dd><a href="#">公司简介</a></dd>
+                        <dd><a href="#">发展历程</a></dd>
+                        <dd><a href="#">管理团队</a></dd>
+                        <dd><a href="#">社会责任</a></dd>
+                        <dd><a href="#">新闻媒体</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="footer_top_four">
+            	<dl>
+                    <dt>关注我们</dt>
+                    <dd>
+                    	<a href="#"><img src="../../img/contact1.gif" alt="" /></a>
+                        <a href="#"><img src="../../img/contact2.gif" alt="" /></a>
+                    </dd>
+                    <dd>
+                    	<img src="../../img/contact3.png" alt="" class="contact_pic" />
+                        <span>官方微信</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom clear">
+    	<div class="footer_left">
+        	<span>&copy;&nbsp;2017上海德咸软件有限公司&nbsp;版权所有&nbsp;
+            	<a href="#" target="_blank">沪ICP备17003635号</a>
+            </span>
+        </div>
+        <ul class="footer_right">
+        	<li>
+            	<a href="#" target="_blank">法律声明</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">隐私保护</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">联系我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

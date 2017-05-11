@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+/*tab*/
+.product_piv{
+	background:url(../../img/gy-kv.jpg) no-repeat;
+}
+
+/*end tab*/
+/*main1*/
+.main1{
+	padding-top:92px;
+	width:650px;
+	margin:0 auto;	
+}
+
+.main1_h3{
+	font-size:26px;
+	text-align:center;
+	font-weight:normal;		
+}
+
+.main1_p1{
+	text-align:right;
+	font-size:12px;
+	line-height:46px;
+	color:#999;
+	padding-right:20px;	
+	border-bottom:1px solid #ccc;
+}
+
+.main1_p2{
+	padding-top:38px;
+	font-size:14px;
+	line-height:28px;
+	text-indent:2em;
+	color:#666;	
+}
+
+.main1_p3{
+	margin-top:100px;
+	border-bottom:1px solid #ccc;
+}
+
+.main1_p4{
+	margin-top:10px;
+}
+
+.main1_p4 img{
+	display:block;
+	margin:0 auto;	
+}
+
+.main1_p4 span{
+	display:block;
+	text-align:center;
+	font-size:14px;
+	color:#666;
+	margin-top:16px;	
+}
+
+.main1_p5{
+	padding-top:38px;
+	line-height:36px;
+	text-align:center;
+	font-weight:normal;
+	font-size:20px;
+}
+
+.explain{
+	border:1px solid #ccc;
+	font-size:12px;
+	color:#09F;
+	margin:10px 0 20px;
+	border-radius:4px;	
+}
+
+.main1 .main1_p2{
+	padding-top:10px;	
+}

@@ -1,0 +1,558 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>上海德咸软件有限公司</title>
+<link rel="shortcut icon" href="../../img/dexian.ico" />
+<link rel="stylesheet" href="../../css/publicTab.css" />
+<link rel="stylesheet" href="../acss/stylek.css" />
+<script>
+window.onload=function(){
+	//导航部分
+	var oDivTop=document.getElementById('top_nav');
+	var oUlTop=oDivTop.getElementsByTagName('ul')[0];
+	var aLiTop=oUlTop.getElementsByTagName('li');
+	
+	var aDivTop=oDivTop.getElementsByClassName('hide_one');
+	
+	for(var i=1;i<aLiTop.length;i++){
+		aLiTop[i].index=i-1;
+		aLiTop[i].onmouseover=function(){
+			aDivTop[this.index].style.display='block';	
+		};
+		aLiTop[i].onmouseout=function(){
+			aDivTop[this.index].style.display='none';	
+		};	
+	}
+	
+	for(var i=0;i<aDivTop.length;i++){
+		aDivTop[i].onmouseover=function(){
+			this.style.display='block';	
+		};
+		aDivTop[i].onmouseout=function(){
+			this.style.display='none';	
+		};	
+	}
+	
+	//第二部分图片变换
+	var box = document.getElementById("section_three");
+	var ul = box.getElementsByTagName('ul')[0];
+	var lis = ul.getElementsByTagName('li');
+	 
+	for (var i = 0; i < lis.length; i++) {
+	  lis[i].style.backgroundImage = 'url(img/'+(i+1)+'.jpg)';
+	 
+	  lis[i].onmouseover = function () {
+	 
+		for (var j = 0; j < lis.length; j++) {
+		  animate(lis[j], {"width": 100});
+		}
+	 
+		animate(this, {"width": 800});
+	  };
+	}
+	 
+	box.onmouseout = function () {
+	  for (var i = 0; i < lis.length; i++) {
+		animate(lis[i], {"width": 240});
+	  }
+	};
+	 
+	
+	function animate(obj, json) {
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function () {
+		var flag = true;
+		for (var k in json) {
+		  var leader = parseInt(getStyle(obj, k)) || 0;
+		  var target = json[k];
+		  var step = (target - leader) / 10;
+		  step = step > 0 ? Math.ceil(step) : Math.floor(step);
+		  leader = leader + step;
+		  obj.style[k] = leader + "px";
+		 
+		  console.log("代码还在运行");
+		  if (leader != target) {
+	 
+			flag = false;
+	 
+		  }
+		}
+	 
+		if (flag) {
+		  clearInterval(obj.timer);
+		}
+	  }, 15);
+	}
+	function getStyle(obj, attr) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(obj, null)[attr];
+  } else {
+    return obj.currentStyle[attr];
+  }
+} 
+	 
+};
+</script>
+</head>
+
+<body>
+<div id="top_nav" class="top_nav clear">
+	<a class="logo" href="#">
+    	<img src="../../img/logo3.gif" alt="logo" />
+        <h3>上海德咸软件有限公司</h3>
+    </a>
+	<ul class="top_nav_list">
+    	<li>
+        	<a href="../../indexb.html">首页</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../solution/plan.html">行业解决方案</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../production/product.html">产品中心</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="#">客户案例</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../service/help.html">服务支持</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../relation/contact.html">联系我们</a>
+            <span></span>
+        </li>
+    </ul>
+    <div class="script">
+    	<a href="#"></a>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul3">
+           <li>
+                <dl class="hide_ul1_list">
+                    <dt>制造行业</dt>
+                    <dd><a href="ptext1.html">生产计划</a></dd>
+                    <dd><a href="ptext2.html">物料计划</a></dd>
+                    <dd><a href="ptext3.html">物料分发</a></dd>
+                    <dd><a href="ptext4.html">半成品入库</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>零售行业</dt>
+                    <dd><a href="ptext5.html">POS收银</a></dd>
+                    <dd><a href="ptext6.html">库存管理</a></dd>
+                    <dd><a href="ptext7.html">积分活动</a></dd>
+                    <dd><a href="ptext8.html">APP/微信</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>服装行业</dt>
+                    <dd><a href="#">订单输入</a></dd>
+                    <dd><a href="#">颜色尺码管理</a></dd>
+                    <dd><a href="#">布料计划</a></dd>
+                    <dd><a href="#">款式出样</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list hide_ul1_right">
+                    <dt>外贸行业</dt>
+                    <dd><a href="#">采购订单</a></dd>
+                    <dd><a href="#">销售订单</a></dd>
+                    <dd><a href="#">出入库记录</a></dd>
+                    <dd><a href="#">销售报表</a></dd>
+                </dl>
+            </li>
+            <li>
+                <img src="">
+                <p></p>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul2">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>ERP系列</dt>
+                    <dd><a href="#">进销存系统</a></dd>
+                    <dd><a href="#">采购系统</a></dd>
+                    <dd><a href="#">CRM系统</a></dd>
+                    <dd><a href="#">仓库管理系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>其他软件产品</dt>
+                    <dd><a href="#">商机管理系统</a></dd>
+                    <dd><a href="#">二维码</a></dd>
+                    <dd><a href="#">数据实时屏显系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>定制开发</dt>
+                    <dd><a href="#">JAVA开发</a></dd>
+                    <dd><a href="#">C/C++开发</a></dd>
+                    <dd><a href="#">APP开发/微信开发</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_right hide_ul1_list">
+                    <dt>代理软硬件产品</dt>
+                    <dd><a href="../../production/user/user1.html">帕拉迪堡垒机</a></dd>
+                    <dd><a href="../../production/user/user3.html">深信服上网行为管理</a></dd>
+                    <dd><a href="../../production/user/user2.html">亿塞通数据加密防泄漏软件</a></dd>
+                    <dd><a href="#">华为桌面云系统</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul4">
+            <li>
+            	<div class="hide_ul4_pic1">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgjICAvQUoqpnrpwEw4wE4TA.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>浙江尤奈特电机有限公司</h3>
+                    </div>
+                </div>
+            </li>
+            <li>
+            	<div class="hide_ul4_pic1 hide_ul4_pic2">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgqIGAvQUopsWvxQUw0QE4Pg.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>申银万国期货有限公司</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+    	<ul class="hide_ul1 hide_ul5">
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>德咸公司吸收全球客户的经验，结合国内外先进的管理理念和管理软件的实施方法，推出符合中国国情的标准软件实施方法“Xway实施方法论”。我们愿意运用我们在企业管理及IT技术方面的知识，帮助客户迈向一个更高的台阶！</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <div class="hide_service">
+        	<ul class="clear">
+            	<li>
+                	<img src="../../img/n2.jpg" alt="" />
+                </li>
+                <li>
+                	<p>
+                    	地址：乳山路206号申富大厦501室<br/>
+                        邮政编码:200120
+                    </p>
+                	<p>
+                    	公司总电：021-61557545<br/>
+                        电子邮箱:info@magnifiit.com
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="tab product_piv" ></div>
+<div class="main1">
+	<h3 class="main1_h3">物资需求计划</h3>
+    <p class="main1_p1">发布时间：2008-11-24 来源：互联网</p>
+    <p class="main1_p2">
+    	物资需求计划的含义及内容
+    </p>
+    <p class="main1_p2">
+    	物资需求计划是指根据产品结构各层次物品的从属和数量关系，以每个物品为计划对象，以完工时期为时间基准倒排计划，按提前期长短区别各个物品下达计划时间的先后顺序，是一种工业制造企业内物资计划管理模式。MRP是根据市场需求预测和顾客订单制定产品的生产计划，然后基于产品生成进度计划，组成产品的材料结构表和库存状况，通过计算机计算所需物资的需求量和需求时间，从而确定材料的加工进度和订货日程的一种实用技术。
+    </p>
+    <p class="main1_p2">
+    	其主要内容包括客户需求管理、产品生产计划、原材料计划以及库存记录。其中客户需求管理包括客户订单管理及销售预测，将实际的客户订单数与科学的客户需求预测相结合即能得出客户需要什么以及需求多少。
+    </p>
+    <p class="main1_p2">
+    	物资需求计划的主要思想
+    </p>
+    <p class="main1_p2">
+    	MRP是由美国库存协会在60年代初提出的。之前,企业的资库存计划通常采用定货点法,当库存水平低于定货点时,就开始定货。这种管理办法在物资消耗量平稳的情况下适用,不适用于订单生产。由于计算机技术的发展,有可能将物资分为相关需求（非独立需求）和独立需求来进行管理。相关需求根据物料清单、库存情况和生产计划制定出物资的相关需求时间表,按所需物资提前采购,这样就可以大大降低库存。
+    </p>
+    <p class="main1_p2">
+    	其主要思想是：
+    </p>
+    <p class="main1_p2">
+    	1.打破产品品种台套之间的界线，把企业生产过程中所涉及的所有产品、零部件、原材料、中间件等，在逻辑上视为相同的物料；
+
+　　2.把所有物料分成独立需求（independent demand）和相关需求（dependent demand）两种类型。在MRP系统中，“物料”是一个广义的概念，泛指原材料、在制品、外购件以及产品。所有物料分成独立需求和相关需求二类。
+
+独立需求：若某种需求与对其它产品或零部件的需求无关，则称之为独立需求。它来自企业外部，其需求量和需求时间由企业外部的需求来决定，如客户订购的产品、售后用的备品备件等。其需求数据一般通过预测和订单来确定，可按订货点方法处理。
+相关需求：对某些项目的需求若取决于对另一些项目的需求，则这种需求为相关需求。它发生在制造过程中，可以通过计算得到。对原材料、毛坯、零件、部件的需求，来自制造过程，是相关需求，MRP处理的正是这类相关需求。
+例如：汽车与零部件的关系。汽车产品的零部件与物料就具备非独立性需求，因为任意时刻所需零部件与原材料的总量都是汽车生产量的函数。相反地，产成品汽车的需求则是独立性需求——汽车并非其它任何东西的组成元件。
+　　3.根据产品的需求时间和需求数量进行展开，按时间段确定不同时期各种物料的需求。
+    </p>
+    <p class="main1_p2">
+    	物资需求计划的基本原理
+    </p>
+    <p class="main1_p2">
+    	MRP基本的原理是，由主生产进度计划(MPS)和主产品的层次结构逐层逐个地求出主产品所有零部件的出产时间、出产数量。把这个计划叫做物料需求计划。其中，如果零部件靠企业内部生产的，需要根据各自的生产时间长短来提前安排投产时间，形成零部件投产计划；如果零部件需要从企业外部采购的，则要根据各自的订货提前期来确定提前发出各自订货的时间、采购的数量，形成采购计划。确实按照这些投产计划进行生产和按照采购计划进行采购，就可以实现所有零部件的出产计划，从而不仅能够保证产品的交货期，而且还能够降低原材料的库存，减少流动资金的占用。MRP的逻辑原理，如图1所示。
+    </p>
+    <div class="main1_p4">
+    	<img src="../aimage/p21.png" alt="MRP逻辑原理图" />
+        <span>图1 MRP逻辑原理图</span>
+    </div>
+    <p class="main1_p2">
+    	由图1可以看出，物料需求计划MRP是根据主生产进度计划(MPS)、主产品的结构文件(BOM)和库存文件而形成的。
+    </p>
+    <p class="main1_p2">
+    	 主产品就是企业用以供应市场需求的产成品。例如，汽车制造厂生产的汽车，电视机厂生产的电视机，都是各自企业的主产品。
+
+　　主产品的结构文件BOM(Bill of Materials)主要反应出主产品的层次结构、所有零部件的结构关系和数量组成。根据这个文件，可以确定主产品及其各个零部件的需要数量、需要时间和它们相互间的装配关系。
+
+　　主生产进度计划MPS(Master Production Schedule)，主要描述主产品及由有其结构文件BOM决定的零部件的出产进度，表现为各时间段内的生产量，有出产时间、出产数量或装配时间、装配数量等。
+
+　　产品库存文件，包括了主产品和其所有的零部件的库存量、已订未到量和已分配但还没有提走的数量。制定物料需求计划有一个指导思想，就是要尽可能减少库存。产品优先从库存物资中供应，仓库中有的，就不再安排生产和采购。仓库中有但数量不够的，只安排不够的那一部分数量投产或采购。
+
+　　由物料需求计划再产生产品投产计划和产品采购计划，根据产品投产计划和采购计划组织物资的生产和采购，生成制造任务单和采购订货单，交制造部门生产或交采购部门去采购。
+    </p>
+    <p class="main1_p2">
+    	物资需求计划的特点
+    </p>
+    <p class="main1_p2">
+    	1.需求的相关性：在流通企业中，各种需求往往是独立的。而在生产系统中，需求具有相关性。例如，根据订单确定了所需产品的数量之后，由新产品结构文件BOM即可推算出各种零部件和原材料的数量，这种根据逻辑关系推算出来的物料数量称为相关需求。不但品种数量有相关性，需求时间与生产工艺过程的决定也是相关的。
+
+　　2.需求的确定性：MRP的需求都是根据主产进度计划、产品结构文件和库存文件精确计算出来的，品种、数量和需求时间都有严格要求，不可改变。
+
+　　3.计划的复杂性：MRP计划要根据主产品的生产计划,产品结构文件,库存文件,生产时间和采购时间,把主产品的所有零部件需要数量,时间,先后关系等准确计算出来.当产品结构复杂,零部件数量特别多时,其计算工作量非常庞大,人力根本不能胜任,必须依靠计算机实施这项工程。
+    </p>
+    <p class="main1_p2">
+    	制订物料需求计划前具备的基本数据
+    </p>
+    <p class="main1_p2">
+    	制订物料需求计划前就必须具备以下的基本数据：
+    </p>
+    <p class="main1_p2">
+    	第一项数据是主生产计划，它指明在某一计划时间段内应生产出的各种产品和备件，它是物料需求计划制订的一个最重要的数据来源。
+
+　　第二项数据是物料清单(BOM)，它指明了物料之间的结构关系，以及每种物料需求的数量，它是物料需求计划系统中最为基础的数据。
+
+　　第三项数据是库存记录，它把每个物料品目的现有库存量和计划接受量的实际状态反映出来。
+
+　　第四项数据是提前期，决定着每种物料何时开工、何时完工。
+
+　　应该说，这四项数据都是至关重要、缺一不可的。缺少其中任何一项或任何一项中的数据不完整，物料需求计划的制订都将是不准确的。因此，在制订物料需求计划之前，这四项数据都必须先完整地建立好，而且保证是绝对可靠的、可执行的数据。
+    </p>
+    <p class="main1_p2">
+    	物料需求计划的基本计算步骤
+    </p>
+    <p class="main1_p2">
+    	一般来说，物料需求计划的制订是遵照先通过主生产计划导出有关物料的需求量与需求时间，然后，再根据物料的提前期确定投产或订货时间的计算思路。其基本计算步骤如下：
+
+　　1.计算物料的毛需求量。即根据主生产计划、物料清单得到第一层级物料品目的毛需求量，再通过第一层级物料品目计算出下一层级物料品目的毛需求量，依次一直往下展开计算，直到最低层级原材料毛坯或采购件为止。
+
+　　2.净需求量计算。即根据毛需求量、可用库存量、已分配量等计算出每种物料的净需求量。
+
+　　3.批量计算。即由相关计划人员对物料生产作出批量策略决定，不管采用何种批量规则或不采用批量规则，净需求量计算后都应该表明有否批量要求。
+
+　　4.安全库存量、废品率和损耗率等的计算。即由相关计划人员来规划是否要对每个物料的净需求量作这三项计算。
+
+　　5.下达计划订单。即指通过以上计算后，根据提前期生成计划订单。物料需求计划所生成的计划订单，要通过能力资源平衡确认后，才能开始正式下达计划订单。
+
+　　6.再一次计算。物料需求计划的再次生成大致有两种方式，第一种方式会对库存信息重新计算，同时覆盖原来计算的数据，生成的是全新的物料需求计划；第二种方式则只是在制定、生成物料需求计划的条件发生变化时，才相应地更新物料需求计划有关部分的记录。这两种生成方式都有实际应用的案例，至于选择哪一种要看企业实际的条件和状况。
+    </p>
+    <p class="main1_p2">
+    	物资需求计划实现的目标
+    </p>
+    <p class="main1_p2">
+    	(1)及时取得生产所需的原材料及零部件，保证按时供应用户所需产品。
+
+　　(2)保证尽可能低的库存水平。
+
+　　(3)计划企业的生产活动与采购活动，使各部门生产的零部件、采购的外购件与装配的要求在时间和数量上精确衔接。
+
+　　MRP主要用于生产“组装”型产品的制造业。在实施MRP时，与市场需求相适应的销售计划是MRP成功的最基本的要素。但MRP也存在局限，即资源仅仅局限于企业内部和决策结构化的倾向明显。
+    </p>
+    <p class="main1_p2">
+    	MRP的产生与发展
+    </p>
+    <p class="main1_p2">
+    	MRP的发展大体经历了从订货点法到库存订货计划（即最初级的物料需求计划MRP）、从MRP到作为一种生产与控制系统的闭环MRP、从闭环MRP到作为一种生产管理信息系统制造资源计划（MPRⅡ）等几次飞跃。
+    </p>
+    <p class="main1_p2">
+    	1.订货点法。
+    </p>
+    <p class="main1_p2">
+    	传统的库存控制方法是定货点法，要根据物料的需求情况来确定订货点和订货批量。这类方法适合于需求比较稳定的物料。然而，在实际生产中，随着市场环境发生变化，需求常常是不稳定的、不均匀的，在这种情况下使用订货点法便暴露出一些明显的缺陷。
+    </p>
+    <p class="main1_p2">
+    	订货点法的缺陷：
+    </p>
+    <p class="main1_p2">
+    	（1）盲目性
+    </p>
+    <p class="main1_p2">
+    	由于需求的不均匀以及对需求的情况不了解，企业不得不保持一个较大数量的安全库存来应付这种需求。这样盲目地维持一定量的库存会造成资金积压，造成浪费。
+    </p>
+    <p class="main1_p2">
+    	（2）高库存与低服务水平。传统的订货点方法使得低库存与高服务水平两者不可兼得。服务水平越高则库存越高，还常常造成零件积压与短缺共存的局面。
+    </p>
+    <p class="main1_p2">
+    	订货点法之所以有这些缺陷，是因为它没有按照各种物料真正需用的时间来确定订货日期。于是，人们便思考：怎样才能在需要的时间，按需要的数量得到真正需用的物料？从而消除盲目性，实现低库存与高服务水平并存。
+    </p>
+    <p class="main1_p2">
+    	2.初级的料需求计划（MRP）。
+    </p>
+    <p class="main1_p2">
+    	MRP是当时库存管理专家们为解决传统库存控制方法的不足，不断探索新的库存控制方法的过程中产生的。是依据市场需求预测和顾客订单制定产品生产计划，然后基于产品生产进度计划，组织产品的材料结构表和库存状况，通过计算机计算出所需材料的需求量和需求时间，从而确定材料的加工进度和订货日程的种实用技术。
+    </p>
+    <p class="main1_p2">
+    	MRP要解决的问题：
+    </p>
+    <p class="main1_p2">
+    	(1)要根据产品的需求来确定其组成物料的需求时间和计划库存量，必须知道下列数据：
+    </p>
+    <p class="main1_p2">
+    	销售计划或客户订单情况;
+各种产品的组成结构;
+物料的现有库存;
+材料消耗定额;
+自制零部件的生产周期;
+外购件和原材料的采购周期等。 
+    </p>
+    <p class="main1_p2">
+    	(2)必须缩短计划编制时间。只有缩短计划编制时间，才能及时调整计划，更好地适应市场的变化。
+    </p>
+    <p class="main1_p2">
+    	六十年代初发展起来的MRP仅是一种物料需求计算器，它根据对产品的需求、产品结构和物料库存数据来计算各种物料的需求，将产品出产计划变成零部件投入出产计划和外购件、原材料的需求计划，从而解决了生产过程中需要什么，何时需要，需要多少的问题。它是开环的，没有信息反馈，也谈不上控制。
+    </p>
+    <p class="main1_p2">
+    	3.闭环MRP。
+    </p>
+    <p class="main1_p2">
+    	闭环MRP系统是在基本MRP系统基础上，把能力需求计划、执行及控制计划的功能也包括进来，形成一个环形回路。
+    </p>
+    <p class="main1_p2">
+    	4.制造资源计划（MRPⅡ）。
+    </p>
+    <p class="main1_p2">
+    	闭环MRP系统的出现，使生产活动方面的各种子系统得到了统一。但这还不够，因为在企业的管理中，生产管理只是一个方面，它所涉及的仅仅是物流，而与物流密切相关的还有资金流。这在许多企业中是由财会人员另行管理的，这就造成了数据的重复录入与存贮，甚至造成数据的不一致性。于是，在20世纪80年代，人们把生产、财务、销售、工程技术、采购等各个子系统集成为一个一体化的系统，并称为制造资源计划（Manufacturing Resource Planning）系统，英文缩写还是MRP，为了区别物料需求计划（亦缩写为MRP）而记为MRPⅡ。
+
+闭环MRP与MRPII的比较如下图。
+    </p>
+   	<div class="main1_p4">
+    	<img src="../aimage/p22.png" alt="生产管理系统解决方案总体生产数据管理" />
+        <span>图一 RFID系统原理图</span>
+    </div>
+    <p class="main1_p2">
+    	5. ERP（Enterprise Resource Planning）阶段
+    </p>
+    <p class="main1_p2">
+    	进入90年代，MRPII得到了蓬勃发展，其应用也从离散型制造业向流程式制造业扩展，不仅应用于汽车、电子等行业，也能用于化工、食品等行业。随着信息技术的发展，MRPII系统的功能也在不断地增强、完善与扩大，向企业资源计划（ERP）发展。 
+    </p>
+    <p class="explain">*本文来源于互联网，本着传播知识、有益学习和研究的目的进行的转载，为网友免费提供，并以尽力标明作者与出处，如有著作权人或出版方提出异议，本站将立即删除。如果您对文章转载有任何疑问请告之我们，以便我们及时纠正。联系方式：021-61557545。</p>
+</div>
+<div class="side_qq">
+	<a class="img_qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=981664509&site=qq&menu=yes">
+		<img src="../../img/qq8.png" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+	</a>
+    <strong>在线咨询</strong>
+</div> 
+<div class="footer">
+	<div class="footer_top_one">
+    	<div class="footer_top_two clear">
+        	<ul class="footer_top_three clear">
+            	<li>
+                	<dl>
+                    	<dt>行业解决方案</dt>
+                        <dd><a href="#">制造行业</a></dd>
+                        <dd><a href="#">零售行业</a></dd>
+                        <dd><a href="#">服装行业</a></dd>
+                        <dd><a href="#">外贸行业</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>产品中心</dt>
+                        <dd><a href="#">ERP系列</a></dd>
+                        <dd><a href="#">其他软件产品</a></dd>
+                        <dd><a href="#">定制开发</a></dd>
+                        <dd><a href="#">代理软硬件产品</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>客户案例</dt>
+                        <dd><a href="#">浙江尤奈特电机有限公司</a></dd>
+                        <dd><a href="#">申银万国期货有限公司</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>关于我们</dt>
+                        <dd><a href="#">公司简介</a></dd>
+                        <dd><a href="#">发展历程</a></dd>
+                        <dd><a href="#">管理团队</a></dd>
+                        <dd><a href="#">社会责任</a></dd>
+                        <dd><a href="#">新闻媒体</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="footer_top_four">
+            	<dl>
+                    <dt>关注我们</dt>
+                    <dd>
+                    	<a href="#"><img src="../../img/contact1.gif" alt="" /></a>
+                        <a href="#"><img src="../../img/contact2.gif" alt="" /></a>
+                    </dd>
+                    <dd>
+                    	<img src="../../img/contact3.png" alt="" class="contact_pic" />
+                        <span>官方微信</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom clear">
+    	<div class="footer_left">
+        	<span>&copy;&nbsp;2017上海德咸软件有限公司&nbsp;版权所有&nbsp;
+            	<a href="#" target="_blank">沪ICP备17003635号</a>
+            </span>
+        </div>
+        <ul class="footer_right">
+        	<li>
+            	<a href="#" target="_blank">法律声明</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">隐私保护</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">联系我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script src="../ajs/amenu.js"></script>
+
+
+

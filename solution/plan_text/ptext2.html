@@ -1,0 +1,536 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>上海德咸软件有限公司</title>
+<link rel="shortcut icon" href="../../img/dexian.ico" />
+<link rel="stylesheet" href="../../css/publicTab.css" />
+<link rel="stylesheet" href="../acss/stylek.css" />
+<script>
+window.onload=function(){
+	//导航部分
+	var oDivTop=document.getElementById('top_nav');
+	var oUlTop=oDivTop.getElementsByTagName('ul')[0];
+	var aLiTop=oUlTop.getElementsByTagName('li');
+	
+	var aDivTop=oDivTop.getElementsByClassName('hide_one');
+	
+	for(var i=1;i<aLiTop.length;i++){
+		aLiTop[i].index=i-1;
+		aLiTop[i].onmouseover=function(){
+			aDivTop[this.index].style.display='block';	
+		};
+		aLiTop[i].onmouseout=function(){
+			aDivTop[this.index].style.display='none';	
+		};	
+	}
+	
+	for(var i=0;i<aDivTop.length;i++){
+		aDivTop[i].onmouseover=function(){
+			this.style.display='block';	
+		};
+		aDivTop[i].onmouseout=function(){
+			this.style.display='none';	
+		};	
+	}
+	
+	//第二部分图片变换
+	var box = document.getElementById("section_three");
+	var ul = box.getElementsByTagName('ul')[0];
+	var lis = ul.getElementsByTagName('li');
+	 
+	for (var i = 0; i < lis.length; i++) {
+	  lis[i].style.backgroundImage = 'url(img/'+(i+1)+'.jpg)';
+	 
+	  lis[i].onmouseover = function () {
+	 
+		for (var j = 0; j < lis.length; j++) {
+		  animate(lis[j], {"width": 100});
+		}
+	 
+		animate(this, {"width": 800});
+	  };
+	}
+	 
+	box.onmouseout = function () {
+	  for (var i = 0; i < lis.length; i++) {
+		animate(lis[i], {"width": 240});
+	  }
+	};
+	 
+	
+	function animate(obj, json) {
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function () {
+		var flag = true;
+		for (var k in json) {
+		  var leader = parseInt(getStyle(obj, k)) || 0;
+		  var target = json[k];
+		  var step = (target - leader) / 10;
+		  step = step > 0 ? Math.ceil(step) : Math.floor(step);
+		  leader = leader + step;
+		  obj.style[k] = leader + "px";
+		 
+		  console.log("代码还在运行");
+		  if (leader != target) {
+	 
+			flag = false;
+	 
+		  }
+		}
+	 
+		if (flag) {
+		  clearInterval(obj.timer);
+		}
+	  }, 15);
+	}
+	function getStyle(obj, attr) {
+  if (window.getComputedStyle) {
+    return window.getComputedStyle(obj, null)[attr];
+  } else {
+    return obj.currentStyle[attr];
+  }
+} 
+	 
+};
+</script>
+</head>
+
+<body>
+<div id="top_nav" class="top_nav clear">
+	<a class="logo" href="#">
+    	<img src="../../img/logo3.gif" alt="logo" />
+        <h3>上海德咸软件有限公司</h3>
+    </a>
+	<ul class="top_nav_list">
+    	<li>
+        	<a href="../../indexb.html">首页</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../solution/plan.html">行业解决方案</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../production/product.html">产品中心</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="#">客户案例</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../service/help.html">服务支持</a>
+            <span></span>
+        </li>
+        <li>
+        	<a href="../../relation/contact.html">联系我们</a>
+            <span></span>
+        </li>
+    </ul>
+    <div class="script">
+    	<a href="#"></a>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul3">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>制造行业</dt>
+                    <dd><a href="ptext1.html">生产计划</a></dd>
+                    <dd><a href="ptext2.html">物料计划</a></dd>
+                    <dd><a href="ptext3.html">物料分发</a></dd>
+                    <dd><a href="ptext4.html">半成品入库</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>零售行业</dt>
+                    <dd><a href="ptext5.html">POS收银</a></dd>
+                    <dd><a href="ptext6.html">库存管理</a></dd>
+                    <dd><a href="ptext7.html">积分活动</a></dd>
+                    <dd><a href="ptext8.html">APP/微信</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>服装行业</dt>
+                    <dd><a href="#">订单输入</a></dd>
+                    <dd><a href="#">颜色尺码管理</a></dd>
+                    <dd><a href="#">布料计划</a></dd>
+                    <dd><a href="#">款式出样</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list hide_ul1_right">
+                    <dt>外贸行业</dt>
+                    <dd><a href="#">采购订单</a></dd>
+                    <dd><a href="#">销售订单</a></dd>
+                    <dd><a href="#">出入库记录</a></dd>
+                    <dd><a href="#">销售报表</a></dd>
+                </dl>
+            </li>
+            <li>
+                <img src="">
+                <p></p>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul1 hide_ul2">
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>ERP系列</dt>
+                    <dd><a href="#">进销存系统</a></dd>
+                    <dd><a href="#">采购系统</a></dd>
+                    <dd><a href="#">CRM系统</a></dd>
+                    <dd><a href="#">仓库管理系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>其他软件产品</dt>
+                    <dd><a href="#">商机管理系统</a></dd>
+                    <dd><a href="#">二维码</a></dd>
+                    <dd><a href="#">数据实时屏显系统</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_list">
+                    <dt>定制开发</dt>
+                    <dd><a href="#">JAVA开发</a></dd>
+                    <dd><a href="#">C/C++开发</a></dd>
+                    <dd><a href="#">APP开发/微信开发</a></dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="hide_ul1_right hide_ul1_list">
+                    <dt>代理软硬件产品</dt>
+                    <dd><a href="../../production/user/user1.html">帕拉迪堡垒机</a></dd>
+                    <dd><a href="../../production/user/user3.html">深信服上网行为管理</a></dd>
+                    <dd><a href="../../production/user/user2.html">亿塞通数据加密防泄漏软件</a></dd>
+                    <dd><a href="#">华为桌面云系统</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <ul class="hide_ul4">
+            <li>
+            	<div class="hide_ul4_pic1">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgjICAvQUoqpnrpwEw4wE4TA.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>浙江尤奈特电机有限公司</h3>
+                    </div>
+                </div>
+            </li>
+            <li>
+            	<div class="hide_ul4_pic1 hide_ul4_pic2">
+                    <img src="http://10055630.s21i-10.faiusr.com/4/ABUIABAEGAAgqIGAvQUopsWvxQUw0QE4Pg.png" alt="" />
+                    <div class="ul4_name">
+                        <h3>申银万国期货有限公司</h3>
+                        <p></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+    	<ul class="hide_ul1 hide_ul5">
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>德咸公司吸收全球客户的经验，结合国内外先进的管理理念和管理软件的实施方法，推出符合中国国情的标准软件实施方法“Xway实施方法论”。我们愿意运用我们在企业管理及IT技术方面的知识，帮助客户迈向一个更高的台阶！</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+            <li>
+                <a class="hide_ul5_pic1" href="#">
+                    <img src="../../img/n2.jpg" alt="" />
+                    <p>让客户省心、舒心、放心，一直是德咸公司的服务理念，让每一个客户都应用成功是我们不懈的追求。</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="hide_one">
+        <div class="hide_service">
+        	<ul class="clear">
+            	<li>
+                	<img src="../../img/n2.jpg" alt="" />
+                </li>
+                <li>
+                	<p>
+                    	地址：乳山路206号申富大厦501室<br/>
+                        邮政编码:200120
+                    </p>
+                	<p>
+                    	公司总电：021-61557545<br/>
+                        电子邮箱:info@magnifiit.com
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="tab product_piv" ></div>
+<div class="main1">
+	<h3 class="main1_h3">基于RFID智能标签的物流行业应用</h3>
+    <p class="main1_p1">发布时间：2011-05-20 来源：互联网</p>
+    <p class="main1_p2">
+    	物流作为伴随生产到消费的一项经济活动, 通过对产品的加工、运输与交换, 为用户提供满意的服务, 是密切市场经济中供求关系的网络组织。在现代物流业中, 由于传统的条形码是可视传播技术, 容易因为磨损或皱折而被拒读, 而且条形码难以唯一标识某个单品。RFID智能标签的出现克服了条形码的这些缺点, 通过自身芯片来保证数据的安全性, 并提供数据量更大的信息。
+    </p>
+    <p class="main1_p2">
+    	本文通过对RFID技术原理、特点以及RFID在物流行业中各个环节应用的综述介绍, 探讨中国物流行业RFID应用模式, 并就一个实际的现代物流仓储管理RFID系统详细说明了RFID如何有效地应用在物流行业中。
+    </p>
+    <p class="main1_p2">
+    	一、RFID技术原理和优点
+    </p>
+    <p class="main1_p2">
+    	RFID作为一种非接触式的自动识别技术, 以其可识别移动的物体、同时识别多个对象、非接触方式以及不需干预等优点被广泛应用于工业自动化、商业自动化和物流信息自动化等众多领域。
+    </p>
+    <p class="main1_p2">
+    	( 一)RFID的基本组成
+    </p>
+    <p class="main1_p2">
+    	RFID的基本原理是利用射频信号及其空间耦合、传输特性, 实现对静止的或移动中的待识别物品的自动识别。一个基本的RFID系统是由RFID智能标签、RFID 读写器和中间件等三部分组成。如(图1)所示。
+    </p>
+    <div class="main1_p4">
+    	<img src="../aimage/p20.png" alt="生产管理系统解决方案总体生产数据管理" />
+        <span>图一 RFID系统原理图</span>
+    </div>
+    <p class="main1_p2">
+    	RFID智能标签由芯片与天线组成, 每一个标签被赋予一个唯一的电子标签编码。读写器可将主机的读写命令传送到电子标签, 再把从主机发往电子标签的数据加密, 将电子标签返回的数据解密后送到主机。中间件主要完成数据信息的存储及管理、对标签进行读写控制等。
+    </p>
+    <p class="main1_p2">
+    	( 二) 工作原理
+    </p>
+    <p class="main1_p2">
+    	当附有电子标签的物体进入读写器的读写区域时, 读写器发出的信号会激活标签; 同时读写器接收到标签反射回来的微波信号后, 将电子标签内的识别代码信息识别出来。这些识别信息作为物体的特征数据被传送到特定计算机作进一步处理, 从而完成与物体相关的信息查询和管理等应用。
+    </p>
+    <p class="main1_p2">
+    	( 三)RFID的技术特点
+    </p>
+    <p class="main1_p2">
+    	和传统的条形码相比, RFID智能标签具有很多优点: ( 1) 从识别能力上来说, RFID标签的应用层次可以具体到每一个需要识别的单品; ( 2) 从识读距离上来说, RFID标签识别技术并不需要可视传输技术,只要在解读器的读取范围内就行了;( 3) 从可储存容量上来说, RFID标签信息容量大, 可反复读写; ( 4) 从适应环境性来说, 它克服了条形码容易被撕掉和污染的缺点, RFID标签可以耐高温, 使用寿命长, 防水, 防磁耐磨损, 可适应不同天气的影响全天候工作; ( 5) 从防干扰性方面来说, RFID标签可以穿过玻璃、塑料等非金属物体进行识别。 
+    </p>
+    <p class="main1_p2">
+    	二、基于RFID技术的物流应用
+    </p>
+    <p class="main1_p2">
+    	( 一) 物流信息系统 
+    </p>
+    <p class="main1_p2">
+    	现代物流企业要为客户提供准确、快捷、安全、优质的服务, 必须对仓储、运输、配送、装卸搬运、流通加工等物流业务全过程利用现代计算机信息技术
+进行信息的采集、储存、传输、加工分析和管理, 对业务流程进行管理、跟踪和控制。信息系统是现代物流企业得以成功运营的必要条件。
+    </p>
+    <p class="main1_p2">
+    	一个完整的物流信息系统包括配送、仓储、运输、结算和行政管理等相互独立而又相互关联的子系统, 这些子系统分别实现物流配送、智能化仓库管理、运输调度管理、自动化结算、物流企业资源管理等系统功能。RFID技术的引进充分发挥了快速、实时、准确采集与处理信息的良好功能特性, 使得企业能够实时、精确地掌握整个供应链上的商流、物流、信息流和资金流的流向和变化, 同时使得供应链上各个业务环节和流程更加协调一致, 提高整个供应链上的经济效益。
+    </p>
+    <p class="main1_p2">
+    	( 二)RFID物流行业应用现状
+    </p>
+    <p class="main1_p2">
+    	RFID作为换代性标识技术, 在欧美发达国家已经表现出了高度的专业性与普及趋势, 具有在物流、物料管理、工业自动化和服务业领域广泛应用的前景。随着企业信息化的提高, RFID技术也有了长足进步。除了第三方物流企业之外, 更多的制造企业将RFID应用在供应链管理、库存管理、配送等涉及产品流转的各个环节, 大大提高了物流信息化水平, 加快了商品流通的速度, 增强了整个物流行业的竞争力。 
+    </p>
+    <p class="main1_p2">
+    	近期瑞士德迅集团(K&N)与德国西门子集团联合在欧美之间的供应链管理运作上率先采用无线射频识别(RFID)系统。TNT也于去年完成了涵盖从进口物流和仓储到跨国分销的供应商链流程的RFID计划第一阶段的工作, 转入全面推广阶段。美国联合包裹服务公司正在试验把RFID货运标签放在可重复使用的集装箱和运输车辆上, 监控车辆和货物进出工厂。波音公司和空中客车公司正在合作, 要求其2000多家供应商在2005年年中开始给飞机和发动机零件安装标签。沃尔玛、Tesco、Metro三家零售企业也大力推动RFID管理货流。
+    </p>
+    <p class="main1_p2">
+    	各个行业RFID技术的积极应用充分说明了RFID技术无论是对第三方物流企业还是大型制造企业物流供应链的构建都发挥着巨大的作用, 它将物流供应链中的各个环节有效地结合在一起, 实现了数据的高度管理, 提高了整体运作效率。 
+    </p>
+    <p class="main1_p2">
+    	( 三)RFID在物流行业的典型应用
+    </p>
+    <p class="main1_p2">
+    	以RFID为基础的软硬件技术构建的RFID信息系统, 将使产品、仓储、采购、运输、销售及消费的全过程发生根本性的变化。目前, RFID技术已经在物流的诸多环节中发挥着重要的作用。
+    </p>
+    <p class="main1_p2">
+    	1. 生产环节
+    </p>
+    <p class="main1_p2">
+    	RFID技术应用于生产环节中的生产线上, 能够实现生产线的自动化和原料、产品的识别定位, 这将大大减少人工识读成本和出错率, 同时也大大提高了生产的效率和质量。RFID技术还能够对产品进行信息的收集、处理, 帮助生产人员轻松的掌握整个生产线的运作情况和产品的生产进度。
+    </p>
+    <p class="main1_p2">
+    	2. 配送/分销环节 
+    </p>
+    <p class="main1_p2">
+    	在配送环节, 采用射频技术能大大加快配送的速度和提高拣选与分发过程的效率与准确率, 并能减少人工、降低配送成本。如果到达中央配送中心的所有商品都贴有RFID标签, 在进入中央配送中心时,托盘通过一个阅读器, 读取托盘上所有货箱上的标签内容。系统将这些信息与发货记录进行核对, 以检测出可能的错误, 然后将RFID标签更新为最新的商品存放地点和状态。
+    </p>
+    <p class="main1_p2">
+    	3. 运输环节 
+    </p>
+    <p class="main1_p2">
+    	在运输环节中通过RFID技术, 在运输的货物和车辆贴上RFID标签, 运输线的检查点上安装上RFID接收装置, 接收装置检测到RFID标签信息后, 将标签信息、地理位置等经由Internet发送给运输调度中心,这样供应商和经销商就能够比较方便地查阅货物现在所处的状态。
+    </p>
+    <p class="main1_p2">
+    	4. 仓储环节
+    </p>
+    <p class="main1_p2">
+    	在仓库里, 射频技术广泛应用于存取货物与库存盘点, 当贴有RFID标签的货物进入仓储中心是, 入口的RFID识读器将自动识别标签并完成库存盘点。在整个仓库管理中, 将系统制定的收货、取货、装运等实际功能与RFID技术相结合, 能够高效地完成各种业务操作, 如指定堆放区域、上架取货与补货等。
+    </p>
+    <p class="main1_p2">
+    	5. 销售环节 
+    </p>
+    <p class="main1_p2">
+    	在销售环节中, RFID可以改进零售商的库存管理。当货物被顾客取走时, 装有RFID识读器的货架能够实时地报告货架上的货物情况, 并通知系统在适当的时候补货。同时对装有RFID标签的货物能够监控其移动、位置等。所有的这些都大大节约的人工成本、减少出错、提高效率。
+    </p>
+    <p class="main1_p2">
+    	三、典型行业应用模式
+    </p>
+    <p class="main1_p2">
+    	目前RFID物流行业典型应用大概有快运业务、第三方综合物流业务和防伪产品物流业务等三种模式。
+    </p>
+    <p class="main1_p2">
+    	( 一) 快运业务模式 
+    </p>
+    <p class="main1_p2">
+    	与传统快运业不同的是, RFID技术可以主动向主人汇报快递的运送情况, 在很大程度上增加了快递业务的透明度。在快运业务模式中RFID电子标签会加贴在单件货物、包装箱、托盘、集装箱、运输车辆等不同包装层次上, 所以对于无论是批量还是单个的管理物流产品在运送过程中的路线等信息都是非常方便的。在快运业务模式中应该充分发挥RFID技术的非可视传输、批量读写、信息储存容量大等技术优势。
+    </p>
+    <p class="main1_p2">
+    	( 二) 第三方综合物流业务模式
+    </p>
+    <p class="main1_p2">
+    	第三方综合物流是指商品交易双方之外的第三方为商品交易双方提供部分或全部物流服务的物流运作模式。第三方综合物流模式将为物流客户提供应用RFID技术的完整成熟解决方案, 其中应用环节包括原材料、零配件的管理、产成品的分拨配送、回收物流、VMI服务等等。第三方综合物流业务需要对企业自身的管理信息系统进行改造, 涉及系统包括运输管理系统、仓库管理系统、采购管理系统、配送管理系统等。
+    </p>
+    <p class="main1_p2">
+    	( 三) 防伪产品物流业模式
+    </p>
+    <p class="main1_p2">
+    	利用射频识别技术防伪, 与其他防伪技术如激光防伪、数字防伪等技术相比, 有着其它防伪技术无法比拟的优点, RFID的每个标签都有一个全球唯一的ID号码, 这个号码是在制作芯片时放在ROM中的,无法修改、无法仿造, 而且具有防机械磨损, 防污损的特点, 数据安全方面除标签的密码保护外, 数据部分可用一些算法实现安全管理。
+    </p>
+    <p class="main1_p2">
+    	四、面向仓库管理的RFID系统
+    </p>
+    <p class="main1_p2">
+    	仓库运营效率是物流以至供应链管理的重要环节。仓储管理系统(WMS,Warehouse ManagementSystem) 不仅包括由应用软件和相关硬件设备构的
+技术支持系统, 还包括仓库运作流程设计系统、仓库管理作业标准系统。 
+    </p>
+    <p class="main1_p2">
+    	( 一) 技术应用方案 
+    </p>
+    <p class="main1_p2">
+    	现代仓储管理的功能包括: 传统的仓储管理、交叉转运/在途合并、增值服务流程、退货、质量保证和动态客户服务。WMS按照运作的业务规则和运算法则, 对信息、资源、行为、存货和分销运作进行管理,使其最大化满足有效产出和精确性的要求。仓库管理系统(WMS) 系统通过数据交换集成电子商务平台等电子媒介, 与物流企业的计划调度等主系统连接,由主系统下达收货和定单的原始数据。同时通过无线网络、手提终端、条码系统和电子标签数据通信(RFID)等信息技术与仓库员工的操作连接。上下相互作用, 传达指令、反馈信息并更新数据库, 同时, 生成所需的电子标签和单据文件。 
+    </p>
+    <p class="main1_p2">
+    	( 二) 系统概述 
+    </p>
+    <p class="main1_p2">
+    	基于RFID自动识别技术的仓库管理系统, 以WMS系统和RFID中间件系统为支撑平台, 由收货、入库、拣货、配装、盘点、出库、叉车定位/调度等多个流程包组成, 其中各功能包既可独立运行也可以平滑连接形成一个完整系统。
+    </p>
+    <p class="main1_p2">
+    	1. 硬件系统
+    </p>
+    <p class="main1_p2">
+    	RFID标签: 根据不同的应用需求, 采用高频和超高频的产品。分为托盘标签、仓库定位标签、单品标签等。
+　　读写器: 分为固定式读写器和手持移动式读写器两类, 均支持RS232、以太网和无线局域网等多种通信方式。
+　　固定式天线: 包括超高频全向平板、垂直平板和水平平板天线, 能够适应多路径高散射的复杂环境,能够增强接收信号。
+　　车载/手持电脑终端: 触摸式液晶屏幕, 支持多种操作系统, 可以连接条码和RFID等多种读写设备, 集成无线网络通信功能, 能够适应多种恶劣复杂的工作环境。 
+    </p>
+    <p class="main1_p2">
+    	2. 软件系统
+    </p>
+    <p class="main1_p2">
+    	RFID中间件系统: 是整个系统的运营支撑平台,具有数据采集、过滤、排序、封装和转发等功能。
+　　应用程序包: 包括收货、入库、拣货、配装、盘点、出库、叉车定位/调度等多个流程包。各流程包间可以灵活组合, 定制成为新的功能包。各流程包均支持货品有标签和无标签两种情况,WMS系统与各功能包无缝连接。 
+　　数据交换平台: 作为多个功能包同时运转的支撑平台, 也是与仿真系统、管理信息系统和ERP系统等外界系统的连接和数据交换平台。
+    </p>
+    <p class="main1_p2">
+    	五、结语 
+    </p>
+    <p class="main1_p2">
+    	RFID技术已经深入到物流供应链管理的各个环节中, 由于它数据采集处理的优点, 不仅提高了整个供应链的效率, 而且增加了供应链的透明度, 在现今激烈的竞争中, RFID技术必将对物流供应链产生积极的影响。 
+    </p>
+    <p class="explain">*本文来源于互联网，本着传播知识、有益学习和研究的目的进行的转载，为网友免费提供，并以尽力标明作者与出处，如有著作权人或出版方提出异议，本站将立即删除。如果您对文章转载有任何疑问请告之我们，以便我们及时纠正。联系方式：021-61557545。</p>
+</div>
+<div class="side_qq">
+	<a class="img_qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=981664509&site=qq&menu=yes">
+		<img src="../../img/qq8.png" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+	</a>
+    <strong>在线咨询</strong>
+</div> 
+<div class="footer">
+	<div class="footer_top_one">
+    	<div class="footer_top_two clear">
+        	<ul class="footer_top_three clear">
+            	<li>
+                	<dl>
+                    	<dt>行业解决方案</dt>
+                        <dd><a href="#">制造行业</a></dd>
+                        <dd><a href="#">零售行业</a></dd>
+                        <dd><a href="#">服装行业</a></dd>
+                        <dd><a href="#">外贸行业</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>产品中心</dt>
+                        <dd><a href="#">ERP系列</a></dd>
+                        <dd><a href="#">其他软件产品</a></dd>
+                        <dd><a href="#">定制开发</a></dd>
+                        <dd><a href="#">代理软硬件产品</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>客户案例</dt>
+                        <dd><a href="#">浙江尤奈特电机有限公司</a></dd>
+                        <dd><a href="#">申银万国期货有限公司</a></dd>
+                    </dl>
+                </li>
+                <li>
+                	<dl>
+                    	<dt>关于我们</dt>
+                        <dd><a href="#">公司简介</a></dd>
+                        <dd><a href="#">发展历程</a></dd>
+                        <dd><a href="#">管理团队</a></dd>
+                        <dd><a href="#">社会责任</a></dd>
+                        <dd><a href="#">新闻媒体</a></dd>
+                    </dl>
+                </li>
+            </ul>
+            <div class="footer_top_four">
+            	<dl>
+                    <dt>关注我们</dt>
+                    <dd>
+                    	<a href="#"><img src="../../img/contact1.gif" alt="" /></a>
+                        <a href="#"><img src="../../img/contact2.gif" alt="" /></a>
+                    </dd>
+                    <dd>
+                    	<img src="../../img/contact3.png" alt="" class="contact_pic" />
+                        <span>官方微信</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom clear">
+    	<div class="footer_left">
+        	<span>&copy;&nbsp;2017上海德咸软件有限公司&nbsp;版权所有&nbsp;
+            	<a href="#" target="_blank">沪ICP备17003635号</a>
+            </span>
+        </div>
+        <ul class="footer_right">
+        	<li>
+            	<a href="#" target="_blank">法律声明</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">隐私保护</a>
+                <span></span>
+            </li>
+            <li>
+            	<a href="#" target="_blank">联系我们</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<script src="../ajs/amenu.js"></script>
+
+
+
